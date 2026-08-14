@@ -9,8 +9,8 @@ import { BlocoCTA } from '@/components/conteudo/BlocoCTA'
 import { getLinhaDoTempo } from '@/lib/sanity/queries'
 
 export const metadata = {
-  title: 'Nossa História & 70 Anos de Tradição',
-  description: 'Conheça a trajetória de 70 anos do Colégio Sagrado Coração de Jesus em Curitiba, nossa missão, visão, valores e evolução histórica.',
+  title: 'Nossa História e 70 Anos em Rio Grande - RS',
+  description: 'Conheça a trajetória de 70 anos do Colégio Sagrado Coração de Jesus em Rio Grande - RS, com missão, visão, valores e tradição pedagógica.',
 }
 
 export default async function NossaHistoriaPage() {
@@ -31,9 +31,9 @@ export default async function NossaHistoriaPage() {
       <section className="bg-[#1E3A5F] text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Jubileu de Vinho (1956 - 2026)</Etiqueta>
-          <h1 className="font-display text-h1 font-bold text-white">Nossa História & Propósito</h1>
+          <h1 className="font-display text-h1 font-bold text-white">Nossa História e Propósito em Rio Grande - RS</h1>
           <p className="text-slate-200 text-body max-w-2xl mx-auto leading-relaxed">
-            Há sete décadas, o Colégio Sagrado Coração de Jesus dedica-se a formar cidadãos conscientes, éticos e preparados para transformar a sociedade.
+            Há sete décadas, o Colégio Sagrado Coração de Jesus atua em Rio Grande - RS formando cidadãos conscientes, éticos e preparados para transformar a sociedade com responsabilidade, acolhimento e excelência.
           </p>
         </div>
       </section>

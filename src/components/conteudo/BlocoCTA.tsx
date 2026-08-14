@@ -9,9 +9,9 @@ interface BlocoCTAProps {
 }
 
 export const BlocoCTA: React.FC<BlocoCTAProps> = ({
-  titulo = 'Venha Conhecer o Colégio Sagrado Coração de Jesus',
-  subtitulo = 'Agende uma visita guiada com a nossa equipe pedagógica e descubra a estrutura e o ambiente de aprendizado onde seu filho vai prosperar.',
-  badge = 'Matrículas & Rematrículas Abertas',
+  titulo = 'Matrículas Abertas em Rio Grande - RS',
+  subtitulo = 'Visite o Colégio Sagrado Coração de Jesus, em Cidade Nova, e descubra uma educação de excelência para a Educação Infantil, Fundamental e Médio, com acolhimento, tradição e estrutura moderna.',
+  badge = 'Matrículas & Rematrículas 2027',
 }) => {
   return (
     <section className="bg-gradient-to-r from-[#1E3A5F] via-[#152A47] to-[#1E3A5F] text-white py-14 px-4 rounded-lg shadow-xl relative overflow-hidden my-12 border-2 border-[#B8860B]/40">
@@ -31,6 +31,10 @@ export const BlocoCTA: React.FC<BlocoCTAProps> = ({
 
         <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
           {subtitulo}
+        </p>
+
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/90">
+          Colégio em Cidade Nova, Rio Grande - RS
         </p>
 
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">

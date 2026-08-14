@@ -8,8 +8,8 @@ import { BlocoCTA } from '@/components/conteudo/BlocoCTA'
 import { getModalidades } from '@/lib/sanity/queries'
 
 export const metadata = {
-  title: 'Modalidades de Ensino',
-  description: 'Conheça o projeto pedagógico do Colégio Sagrado Coração de Jesus da Educação Infantil ao Ensino Médio.',
+  title: 'Modalidades de Ensino em Rio Grande - RS',
+  description: 'Conheça as modalidades de Educação Infantil, Ensino Fundamental e Ensino Médio do Colégio Sagrado Coração de Jesus em Rio Grande - RS.',
 }
 
 export default async function EnsinoPage() {
@@ -22,9 +22,19 @@ export default async function EnsinoPage() {
       <section className="bg-[#1E3A5F] text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Excelência Pedagógica</Etiqueta>
-          <h1 className="font-display text-h1 font-bold text-white">Modalidades de Ensino</h1>
+          <h1 className="font-display text-h1 font-bold text-white">Modalidades de Ensino em Rio Grande - RS</h1>
           <p className="text-slate-200 text-body max-w-2xl mx-auto leading-relaxed">
-            Formação acadêmica robusta alinhada com desenvolvimento humano e inovação em cada etapa da vida escolar.
+            Formação acadêmica robusta e acolhedora para a Educação Infantil, Ensino Fundamental e Ensino Médio em Rio Grande - RS, com atenção à identidade, ao desenvolvimento humano e à excelência pedagógica.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-[1280px] mx-auto px-4 pt-10">
+        <div className="rounded-2xl border border-[#1E3A5F]/10 bg-[#F5F7FA] p-6 text-center shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Localização</p>
+          <h2 className="mt-2 font-display text-h2 font-bold text-slate-900">Colégio no bairro Cidade Nova, em Rio Grande - RS</h2>
+          <p className="mt-3 mx-auto max-w-3xl text-slate-600">
+            O Colégio Sagrado Coração de Jesus oferece uma educação de qualidade para famílias da região, combinando tradição, proximidade e um ambiente propício ao aprendizado e ao desenvolvimento integral.
           </p>
         </div>
       </section>

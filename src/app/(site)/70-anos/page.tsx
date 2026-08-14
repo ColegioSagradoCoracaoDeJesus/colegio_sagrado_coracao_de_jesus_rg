@@ -169,7 +169,7 @@ export default async function SetentaAnosPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {depoimentos.map((dep) => (
               <div key={dep._id} className="bg-white p-6 rounded-md border border-slate-200 shadow-sm space-y-4">
-                <p className="italic text-slate-700 text-sm leading-relaxed">"{dep.texto}"</p>
+                <p className="italic text-slate-700 text-sm leading-relaxed">“{dep.texto}”</p>
                 <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[#1E3A5F] text-white font-bold flex items-center justify-center">
                     {dep.nome.charAt(0)}

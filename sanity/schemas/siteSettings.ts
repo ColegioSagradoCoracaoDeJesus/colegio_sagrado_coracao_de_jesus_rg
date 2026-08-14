@@ -60,6 +60,31 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'bairro',
+      title: 'Bairro',
+      type: 'string',
+      initialValue: 'Cidade Nova',
+    }),
+    defineField({
+      name: 'cidade',
+      title: 'Cidade',
+      type: 'string',
+      initialValue: 'Rio Grande',
+    }),
+    defineField({
+      name: 'estado',
+      title: 'Estado',
+      type: 'string',
+      initialValue: 'RS',
+    }),
+    defineField({
+      name: 'descricaoSEO',
+      title: 'Descrição SEO Local',
+      type: 'text',
+      rows: 3,
+      description: 'Texto curto para reforçar a localização do colégio em buscas locais e mapeamento do Google.',
+    }),
+    defineField({
       name: 'linkMapaEmbed',
       title: 'URL de Incorporação do Google Maps',
       type: 'url',
@@ -78,6 +103,18 @@ export default defineType({
         { name: 'facebook', type: 'url', title: 'Facebook' },
         { name: 'youtube', type: 'url', title: 'YouTube' },
       ],
+    }),
+    defineField({
+      name: 'parceiros',
+      title: 'Empresas Parceiras',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'parceiro' }],
+        },
+      ],
+      description: 'Selecione as empresas parceiras para exibir no site. Ordene por importância.',
     }),
   ],
 })

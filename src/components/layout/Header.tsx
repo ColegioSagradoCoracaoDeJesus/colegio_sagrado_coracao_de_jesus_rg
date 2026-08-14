@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, MessageSquare, Calendar, GraduationCap, ChevronDown, Clock, Sparkles, BookOpen, PhoneCall } from 'lucide-react'
+import { Menu, X, MessageSquare, Calendar, GraduationCap, ChevronDown, Clock, Sparkles, BookOpen, PhoneCall } from 'lucide-react'
 import { Botao } from '../ui/Botao'
 
 export const Header: React.FC = () => {
@@ -24,13 +25,11 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    setIsMenuOpen(false)
-  }, [pathname])
-
   const toggleMobileAccordion = (key: string) => {
     setOpenMobileAccordion(openMobileAccordion === key ? null : key)
   }
+
+  const closeMobileMenu = () => setIsMenuOpen(false)
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white shadow-md transition-all duration-300">
@@ -67,13 +66,15 @@ export const Header: React.FC = () => {
       }`}>
         {/* Prominent High-Res Official Logo */}
         <Link href="/" className="flex items-center group focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-md py-0.5 shrink-0">
-          <img
-            src="/logotipo.png?v=4"
+          <Image
+            src="/logotipo.png"
             alt="Colégio Sagrado Coração de Jesus - 70 Anos"
-            className={`w-auto transition-all duration-300 object-contain group-hover:scale-[1.01] ${
-              isScrolled
-                ? 'h-14 sm:h-16 md:h-20 max-w-[220px] sm:max-w-[300px] md:max-w-[380px]'
-                : 'h-18 sm:h-22 md:h-26 lg:h-30 max-w-[260px] sm:max-w-[380px] md:max-w-[460px]'
+            width={460}
+            height={120}
+            priority
+            sizes="(max-width: 640px) 200px, (max-width: 1024px) 260px, 380px"
+            className={`w-auto h-auto transition-all duration-300 object-contain group-hover:scale-[1.01] ${
+              isScrolled ? 'max-w-[220px] sm:max-w-[300px] md:max-w-[380px]' : 'max-w-[260px] sm:max-w-[380px] md:max-w-[460px]'
             }`}
           />
         </Link>
@@ -100,6 +101,12 @@ export const Header: React.FC = () => {
                   className="block px-3.5 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
                 >
                   Nossa História
+                </Link>
+                <Link
+                  href="/escola-em-rio-grande-rs"
+                  className="block px-3.5 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                >
+                  Escola em Rio Grande - RS
                 </Link>
                 <Link
                   href="/70-anos"
@@ -238,6 +245,7 @@ export const Header: React.FC = () => {
               <nav className="flex flex-col gap-3">
                 <Link
                   href="/"
+                  onClick={closeMobileMenu}
                   className="px-4 py-2.5 rounded-md text-sm font-medium text-slate-800 hover:bg-slate-100"
                 >
                   Início
@@ -254,10 +262,10 @@ export const Header: React.FC = () => {
                   </button>
                   {openMobileAccordion === 'inst' && (
                     <div className="p-2 space-y-1 bg-white border-t border-slate-100">
-                      <Link href="/nossa-historia" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Nossa História</Link>
-                      <Link href="/70-anos" className="block px-3 py-2 text-xs font-semibold text-[#B8860B] hover:bg-amber-50 rounded">70 Anos (1956 - 2026)</Link>
-                      <Link href="/diferenciais" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Diferenciais Pedagógicos</Link>
-                      <Link href="/vivencie-o-sagrado" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Vivencie o Sagrado</Link>
+                      <Link href="/nossa-historia" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Nossa História</Link>
+                      <Link href="/70-anos" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-semibold text-[#B8860B] hover:bg-amber-50 rounded">70 Anos (1956 - 2026)</Link>
+                      <Link href="/diferenciais" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Diferenciais Pedagógicos</Link>
+                      <Link href="/vivencie-o-sagrado" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Vivencie o Sagrado</Link>
                     </div>
                   )}
                 </div>
@@ -273,9 +281,9 @@ export const Header: React.FC = () => {
                   </button>
                   {openMobileAccordion === 'ensino' && (
                     <div className="p-2 space-y-1 bg-white border-t border-slate-100">
-                      <Link href="/ensino" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Modalidades de Ensino</Link>
-                      <Link href="/nossa-estrutura" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Nossa Estrutura & Câmpus</Link>
-                      <Link href="/locacao-de-espacos" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Locação de Espaços</Link>
+                      <Link href="/ensino" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Modalidades de Ensino</Link>
+                      <Link href="/nossa-estrutura" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Nossa Estrutura & Câmpus</Link>
+                      <Link href="/locacao-de-espacos" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Locação de Espaços</Link>
                     </div>
                   )}
                 </div>
@@ -291,14 +299,16 @@ export const Header: React.FC = () => {
                   </button>
                   {openMobileAccordion === 'comunicacao' && (
                     <div className="p-2 space-y-1 bg-white border-t border-slate-100">
-                      <Link href="/noticias" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Aconteceu no Sagrado (Notícias)</Link>
-                      <Link href="/contato" className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Fale Conosco & Localização</Link>
+                      <Link href="/noticias" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Aconteceu no Sagrado (Notícias)</Link>
+                      <Link href="/escola-em-rio-grande-rs" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Escola em Rio Grande - RS</Link>
+                      <Link href="/contato" onClick={closeMobileMenu} className="block px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded">Fale Conosco & Localização</Link>
                     </div>
                   )}
                 </div>
 
                 <Link
                   href="/matriculas"
+                  onClick={closeMobileMenu}
                   className="px-4 py-2.5 rounded-md text-sm font-bold bg-[#1E3A5F] text-white text-center shadow"
                 >
                   Matrículas 2027
@@ -311,7 +321,7 @@ export const Header: React.FC = () => {
                 <Calendar className="w-4 h-4" />
                 <span>Agende uma Visita Guiada</span>
               </Botao>
-              <Botao href="https://wa.me/55533232-5531" external variant="outline" fullWidth size="md">
+              <Botao href="https://wa.me/555332325531" external variant="outline" fullWidth size="md">
                 <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>Falar com a Secretaria</span>
               </Botao>

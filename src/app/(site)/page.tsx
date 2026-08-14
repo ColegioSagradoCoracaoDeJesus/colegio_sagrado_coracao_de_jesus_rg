@@ -7,7 +7,13 @@ import { Etiqueta } from '@/components/ui/Etiqueta'
 import { CartaoNoticia } from '@/components/conteudo/CartaoNoticia'
 import { CartaoDiferencial } from '@/components/conteudo/CartaoDiferencial'
 import { BlocoCTA } from '@/components/conteudo/BlocoCTA'
-import { getNoticias, getDiferenciais, getModalidades, getDepoimentos } from '@/lib/sanity/queries'
+import { CarroselParceiros } from '@/components/conteudo/CarroselParceiros'
+import { getNoticias, getDiferenciais, getModalidades, getDepoimentos, getParceiros } from '@/lib/sanity/queries'
+
+export const metadata = {
+  title: 'Colégio Sagrado Coração de Jesus | Educação de Excelência em Rio Grande - RS',
+  description: 'Descubra o Colégio Sagrado Coração de Jesus em Rio Grande - RS: Educação Infantil, Ensino Fundamental, Ensino Médio, tradição, acolhimento e matrículas abertas.',
+}
 
 export const revalidate = 60 // Revalidate cache every 60 seconds
 
@@ -16,6 +22,7 @@ export default async function HomePage() {
   const diferenciais = await getDiferenciais()
   const modalidades = await getModalidades()
   const depoimentos = await getDepoimentos()
+  const parceiros = await getParceiros()
 
   const noticiasDestaque = notizie.filter((n) => n.destaque).slice(0, 2)
   const outrasNoticias = notizie.slice(0, 3)
@@ -59,7 +66,7 @@ export default async function HomePage() {
             </h1>
 
             <p className="text-slate-200 text-base sm:text-xl max-w-2xl leading-relaxed font-sans">
-              Tradição pedagógica reconhecida, estrutura moderna com ginásio e auditório próprios, programa bilíngue e foco constante na formação humana integral do seu filho.
+              Tradição pedagógica reconhecida em Rio Grande - RS, estrutura moderna com ginásio e auditório próprios, programa bilíngue e foco constante na formação humana integral do seu filho.
             </p>
 
             {/* 4 Mandatory Action Buttons (RF01) */}
@@ -118,6 +125,35 @@ export default async function HomePage() {
                 <span>Ver programação dos 70 Anos</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-[1280px] mx-auto px-4">
+        <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-sm sm:p-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Escola em Rio Grande - RS</p>
+              <h2 className="mt-2 font-display text-h2 font-bold text-slate-900">Educação de qualidade para famílias da região</h2>
+              <p className="mt-3 text-slate-600 leading-relaxed">
+                O Colégio Sagrado Coração de Jesus está localizado no bairro Cidade Nova, em Rio Grande - RS, e oferece uma proposta educativa completa para a Educação Infantil, Ensino Fundamental e Ensino Médio. Com 70 anos de tradição, o Colégio combina acolhimento, valores, excelência acadêmica e uma infraestrutura moderna para o desenvolvimento integral dos estudantes.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:w-[360px]">
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
+                <div className="text-lg font-bold text-[#1E3A5F]">70 anos</div>
+                <div className="text-xs text-slate-600">de tradição</div>
+              </div>
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
+                <div className="text-lg font-bold text-[#1E3A5F]">Educação</div>
+                <div className="text-xs text-slate-600">Integral</div>
+              </div>
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
+                <div className="text-lg font-bold text-[#1E3A5F]">Rio Grande</div>
+                <div className="text-xs text-slate-600">- RS</div>
+              </div>
             </div>
           </div>
         </div>
@@ -243,6 +279,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <CarroselParceiros parceiros={parceiros} />
+
       {/* SECTION 6: TESTEMUNHOS DOS 70 ANOS (RF08) */}
       <section className="bg-[#1E3A5F] text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto">
@@ -258,7 +296,7 @@ export default async function HomePage() {
             {depoimentos.map((dep) => (
               <div key={dep._id} className="bg-[#152A47] p-6 rounded-md border border-[#B8860B]/40 shadow-lg flex flex-col justify-between">
                 <p className="italic text-slate-200 text-sm leading-relaxed mb-6">
-                  "{dep.texto}"
+                  “{dep.texto}”
                 </p>
 
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-700">

@@ -6,8 +6,8 @@ import { FormVisitaModal } from '@/components/conteudo/FormVisitaModal'
 import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
 
 export const metadata = {
-  title: 'Fale Conosco & Agende uma Visita',
-  description: 'Entre em contato com a secretaria do Colégio Sagrado Coração de Jesus em Curitiba. Telefones, WhatsApp, localização e formulário de agendamento.',
+  title: 'Fale Conosco e Agende uma Visita em Rio Grande - RS',
+  description: 'Entre em contato com a secretaria do Colégio Sagrado Coração de Jesus em Rio Grande - RS. Telefones, WhatsApp, endereço no bairro Cidade Nova e agendamento de visita.',
 }
 
 export default function ContatoPage() {
@@ -20,9 +20,9 @@ export default function ContatoPage() {
       <section className="bg-[#1E3A5F] text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Atendimento Acolhedor</Etiqueta>
-          <h1 className="font-display text-h1 font-bold text-white">Fale Conosco & Agende uma Visita</h1>
+          <h1 className="font-display text-h1 font-bold text-white">Fale Conosco e Agende uma Visita em Rio Grande - RS</h1>
           <p className="text-slate-200 text-body max-w-2xl mx-auto leading-relaxed">
-            Estamos de portas abertas para atender sua família. Entre em contato pelos canais oficiais ou agende seu horário.
+            Estamos de portas abertas para atender famílias da região de Rio Grande - RS. Entre em contato pela secretaria, pelo WhatsApp ou agende uma visita no bairro Cidade Nova.
           </p>
         </div>
       </section>

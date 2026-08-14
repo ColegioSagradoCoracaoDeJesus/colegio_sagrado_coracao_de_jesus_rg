@@ -1,6 +1,7 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, ShieldCheck, Heart, Award, ChevronRight, ExternalLink } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, ShieldCheck, Award, ChevronRight, ExternalLink } from 'lucide-react'
 import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
 
 export const Footer: React.FC = () => {
@@ -12,9 +13,11 @@ export const Footer: React.FC = () => {
           {/* Col 1: Colégio Info & 70 Anos Seal */}
           <div className="space-y-4">
             <div className="bg-white/95 p-3 rounded-xl shadow-md border-2 border-[#B8860B] inline-block max-w-[260px]">
-              <img
+              <Image
                 src="/logotipo.png"
                 alt="Colégio Sagrado Coração de Jesus - 70 Anos"
+                width={260}
+                height={64}
                 className="h-14 sm:h-16 w-auto object-contain"
               />
             </div>
@@ -42,6 +45,12 @@ export const Footer: React.FC = () => {
                 <Link href="/nossa-historia" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-amber-400" />
                   <span>Nossa História & Missão</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/escola-em-rio-grande-rs" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Escola em Rio Grande - RS</span>
                 </Link>
               </li>
               <li>

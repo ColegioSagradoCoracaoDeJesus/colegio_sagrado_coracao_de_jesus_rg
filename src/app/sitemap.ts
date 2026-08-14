@@ -8,6 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
     '/nossa-historia',
+    '/escola-em-rio-grande-rs',
     '/ensino',
     '/vivencie-o-sagrado',
     '/tecnologia-educacional',

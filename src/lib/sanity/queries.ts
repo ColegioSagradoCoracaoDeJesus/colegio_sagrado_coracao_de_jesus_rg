@@ -1,4 +1,5 @@
 import { client, projectId } from './client'
+import { urlForImage } from './image'
 
 export interface SiteSettings {
   title: string
@@ -8,6 +9,10 @@ export interface SiteSettings {
   emailVisita: string
   emailLocacao: string
   endereco: string
+  bairro: string
+  cidade: string
+  estado: string
+  descricaoSEO: string
   linkMapaEmbed: string
   horarioAtendimento: string
   redesSociais: {
@@ -101,6 +106,17 @@ export interface AmbienteEstrutura {
   fotos: Array<{ url?: string; alt: string; legenda?: string }>
 }
 
+export interface Parceiro {
+  _id: string
+  nome: string
+  logo?: any
+  descricao?: string
+  website?: string
+  ordem: number
+  ativo: boolean
+  logoUrl?: string
+}
+
 // MOCK DATA FALLBACKS FOR ROBUSTNESS
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   title: 'Colégio Sagrado Coração de Jesus',
@@ -110,6 +126,10 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   emailVisita: 'secretariacolegiosagrado@gmail.com',
   emailLocacao: 'secretariacolegiosagrado@gmail.com',
   endereco: 'Rua Doutor Augusto Duprat, 374 - Cidade Nova, Rio Grande - RS, CEP 96211-058 (CEP: 96200-010)',
+  bairro: 'Cidade Nova',
+  cidade: 'Rio Grande',
+  estado: 'RS',
+  descricaoSEO: 'Colégio em Cidade Nova, Rio Grande - RS, com Educação Infantil, Ensino Fundamental e Ensino Médio, tradição e acolhimento.',
   linkMapaEmbed: 'https://maps.google.com/maps?q=Rua+Doutor+Augusto+Duprat,+374+-+Cidade+Nova,+Rio+Grande+-+RS,+96211-058&t=&z=16&ie=UTF8&iwloc=&output=embed',
   horarioAtendimento: 'Segunda a Sexta, das 07h30 às 17h30',
   redesSociais: {
@@ -383,6 +403,36 @@ export const DEFAULT_ESTRUTURA: AmbienteEstrutura[] = [
   },
 ]
 
+export const DEFAULT_PARCEIROS: Parceiro[] = [
+  {
+    _id: 'p1',
+    nome: '[EXEMPLO] Empresa Parceira 1',
+    descricao: '[EXEMPLO] Descreva a parceria institucional para preencher no Sanity.',
+    website: 'https://exemplo.com',
+    ordem: 1,
+    ativo: true,
+    logoUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    _id: 'p2',
+    nome: '[EXEMPLO] Empresa Parceira 2',
+    descricao: '[EXEMPLO] Descreva a parceria institucional para preencher no Sanity.',
+    website: 'https://exemplo.com',
+    ordem: 2,
+    ativo: true,
+    logoUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    _id: 'p3',
+    nome: '[EXEMPLO] Empresa Parceira 3',
+    descricao: '[EXEMPLO] Descreva a parceria institucional para preencher no Sanity.',
+    website: 'https://exemplo.com',
+    ordem: 3,
+    ativo: true,
+    logoUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop',
+  },
+]
+
 const isSanityConfigured = Boolean(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID && process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== 'placeholder-project')
 
 // QUERY FUNCTIONS WITH FALLBACK PROTECTION
@@ -524,5 +574,36 @@ export async function getGaleriasMes(): Promise<GaleriaMes[]> {
     return res && res.length > 0 ? res : fallbackGalerias
   } catch (err) {
     return fallbackGalerias
+  }
+}
+
+export async function getParceiros(): Promise<Parceiro[]> {
+  if (!isSanityConfigured) return DEFAULT_PARCEIROS
+  try {
+    const siteSettings = await client.fetch(`*[_type == "siteSettings"][0].parceiros[] -> {
+      _id,
+      nome,
+      descricao,
+      website,
+      ordem,
+      ativo,
+      logo { asset -> { _ref } }
+    }`)
+
+    if (!Array.isArray(siteSettings)) return DEFAULT_PARCEIROS
+
+    const parceirosComImagem = siteSettings
+      .filter((p: any) => p.ativo !== false)
+      .sort((a: any, b: any) => (a.ordem || 0) - (b.ordem || 0))
+      .map((parceiro: any) => ({
+        ...parceiro,
+        logoUrl: parceiro.logo?.asset?._ref
+          ? urlForImage({ asset: { _ref: parceiro.logo.asset._ref } })?.url() || undefined
+          : undefined,
+      }))
+
+    return parceirosComImagem.length > 0 ? parceirosComImagem : DEFAULT_PARCEIROS
+  } catch (err) {
+    return DEFAULT_PARCEIROS
   }
 }

@@ -8,6 +8,7 @@ import espacoLocacao from './espacoLocacao'
 import linhaDoTempoItem from './linhaDoTempoItem'
 import depoimento70anos from './depoimento70anos'
 import paginaEstrutura from './paginaEstrutura'
+import parceiro from './parceiro'
 
 export const schemaTypes = [
   siteSettings,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   linhaDoTempoItem,
   depoimento70anos,
   paginaEstrutura,
+  parceiro,
 ]

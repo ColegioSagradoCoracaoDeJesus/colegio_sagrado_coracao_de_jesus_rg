@@ -1,5 +1,5 @@
 import React from 'react'
-import { ShieldCheck, Lock, Eye, FileText, CheckCircle2 } from 'lucide-react'
+import { ShieldCheck, Lock, Eye, FileText } from 'lucide-react'
 import { MigalhaDePao } from '@/components/ui/MigalhaDePao'
 import { Etiqueta } from '@/components/ui/Etiqueta'
 
@@ -35,7 +35,7 @@ export default function PoliticaDePrivacidadePage() {
             <span>1. Informações Coletadas nos Formulários</span>
           </h2>
           <p>
-            O Colégio Sagrado Coração de Jesus coleta apenas os dados pessoais estritamente necessários para o atendimento das solicitações enviadas através dos nossos formulários de "Agende uma Visita" e "Orçamento de Locação", incluindo: nome completo, telefone/WhatsApp, endereço de e-mail e informações pedagógicas ou do evento de interesse.
+            O Colégio Sagrado Coração de Jesus coleta apenas os dados pessoais estritamente necessários para o atendimento das solicitações enviadas através dos nossos formulários de Agende uma Visita e Orçamento de Locação, incluindo: nome completo, telefone/WhatsApp, endereço de e-mail e informações pedagógicas ou do evento de interesse.
           </p>
           <p>
             Esses dados trafegam de forma criptografada (HTTPS) diretamente para a equipe responsável pela secretaria ou eventos, não sendo armazenados em bancos de dados públicos e não sendo comercializados ou compartilhados com terceiros sob nenhuma hipótese.
@@ -48,10 +48,10 @@ export default function PoliticaDePrivacidadePage() {
             <span>2. Uso de Cookies e Google Analytics 4</span>
           </h2>
           <p>
-            Nosso site utiliza cookies essenciais para o correto funcionamento da navegação e registra a sua preferência no aviso inicial de cookies via armazenamento local (`localStorage`) no seu próprio navegador.
+            Nosso site utiliza cookies essenciais para o correto funcionamento da navegação e registra a sua preferência no aviso inicial de cookies via armazenamento local no seu próprio navegador.
           </p>
           <p>
-            Os scripts estatísticos de medição de audiência (Google Analytics 4) somente são ativados caso você selecione a opção "Aceitar Todos" no banner de consentimento. Você pode alterar essa escolha ou limpar seus cookies a qualquer momento nas configurações do seu navegador.
+            Os scripts estatísticos de medição de audiência (Google Analytics 4) somente são ativados caso você selecione a opção Aceitar Todos no banner de consentimento. Você pode alterar essa escolha ou limpar seus cookies a qualquer momento nas configurações do seu navegador.
           </p>
         </section>
 
