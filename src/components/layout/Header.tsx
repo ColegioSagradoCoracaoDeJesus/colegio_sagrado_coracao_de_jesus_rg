@@ -41,12 +41,12 @@ export const Header: React.FC = () => {
           <Image
             src="/logotipo.png"
             alt="Colégio Sagrado Coração de Jesus - 70 Anos"
-            width={460}
+            width={360}
             height={120}
             priority
             sizes="(max-width: 640px) 120px, (max-width: 1024px) 140px, 160px"
             className={`w-auto h-auto transition-all duration-300 object-contain group-hover:scale-[1.02] ${
-              isScrolled ? 'max-w-[100px] sm:max-w-[120px] md:max-w-[140px]' : 'max-w-[120px] sm:max-w-[140px] md:max-w-[160px]'
+              isScrolled ? 'max-w-[70px] sm:max-w-[85px] md:max-w-[95px]' : 'max-w-[80px] sm:max-w-[90px] md:max-w-[100px]'
             }`}
           />
         </Link>
