@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
 
       {/* Main Single-Row Navigation Header */}
       <div className={`max-w-[1280px] mx-auto px-4 flex items-center justify-between transition-all duration-300 ${
-        isScrolled ? 'py-2' : 'py-3 sm:py-3.5'
+        isScrolled ? 'py-1.5' : 'py-2 sm:py-2.5'
       }`}>
         {/* Prominent High-Res Official Logo */}
         <Link href="/" className="flex items-center group focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-md py-0.5 shrink-0">
@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
             priority
             sizes="(max-width: 640px) 200px, (max-width: 1024px) 260px, 380px"
             className={`w-auto h-auto transition-all duration-300 object-contain group-hover:scale-[1.01] ${
-              isScrolled ? 'max-w-[220px] sm:max-w-[300px] md:max-w-[380px]' : 'max-w-[260px] sm:max-w-[380px] md:max-w-[460px]'
+              isScrolled ? 'max-w-[180px] sm:max-w-[220px] md:max-w-[260px]' : 'max-w-[200px] sm:max-w-[260px] md:max-w-[320px]'
             }`}
           />
         </Link>
@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           {/* Dropdown 1: Institucional */}
           <div className="relative group">
             <button
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
                 ['/nossa-historia', '/70-anos', '/diferenciais', '/vivencie-o-sagrado'].includes(pathname)
                   ? 'text-[#1E3A5F] bg-slate-100'
                   : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
@@ -134,7 +134,7 @@ export const Header: React.FC = () => {
           {/* Dropdown 2: Ensino & Câmpus */}
           <div className="relative group">
             <button
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
                 ['/ensino', '/nossa-estrutura', '/locacao-de-espacos'].includes(pathname)
                   ? 'text-[#1E3A5F] bg-slate-100'
                   : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
@@ -171,7 +171,7 @@ export const Header: React.FC = () => {
           {/* Dropdown 3: Comunicação */}
           <div className="relative group">
             <button
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
                 ['/noticias', '/contato'].includes(pathname)
                   ? 'text-[#1E3A5F] bg-slate-100'
                   : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
@@ -202,7 +202,7 @@ export const Header: React.FC = () => {
           {/* Matrículas CTA */}
           <Link
             href="/matriculas"
-            className="px-4 py-2 rounded-lg text-sm font-bold bg-[#1E3A5F] text-white hover:bg-[#152A47] transition-all shadow-md hover:shadow-lg"
+            className="px-4 py-1.5 rounded-lg text-sm font-bold bg-[#1E3A5F] text-white hover:bg-[#152A47] transition-all shadow-md hover:shadow-lg"
           >
             Matrículas 2027
           </Link>
