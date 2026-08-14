@@ -10,9 +10,9 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#1E3A5F',   // PLACEHOLDER brand-primary — azul sagrado
-          dark: '#152A47',      // PLACEHOLDER brand-primary-dark
-          soft: '#5C7A99',      // PLACEHOLDER brand-secondary
+          DEFAULT: '#54000A',   // PLACEHOLDER brand-primary — marsala sagrado
+          dark: '#0A0760',      // PLACEHOLDER brand-primary-dark
+          soft: '#398AEA',      // PLACEHOLDER brand-secondary
           light: '#EBF2FA',     // azul suave para fundos de destaque
         },
         accent: '#D97706',      // PLACEHOLDER brand-accent — ambar/dourado de destaque

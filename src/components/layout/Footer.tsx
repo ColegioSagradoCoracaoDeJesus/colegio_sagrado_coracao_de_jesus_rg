@@ -5,6 +5,9 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, Award, ChevronRight, ExternalL
 import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
 
 export const Footer: React.FC = () => {
+  const mapsQuery = encodeURIComponent(DEFAULT_SITE_SETTINGS.endereco)
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
+
   return (
     <footer className="bg-[#152A47] text-slate-200 pt-14 pb-8 border-t-4 border-[#B8860B]">
       <div className="max-w-[1280px] mx-auto px-4">
@@ -133,7 +136,19 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-1" />
-                <span>{DEFAULT_SITE_SETTINGS.endereco}</span>
+                <div className="space-y-1">
+                  <a
+                    href={googleMapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-slate-200 hover:text-amber-300 hover:underline font-medium leading-relaxed block"
+                  >
+                    {DEFAULT_SITE_SETTINGS.endereco}
+                  </a>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-amber-300 font-semibold">
+                    Colégio em Cidade Nova, Rio Grande - RS
+                  </p>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />

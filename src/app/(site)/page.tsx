@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, GraduationCap, Award, Heart, CheckCircle2, ChevronRight, MessageSquare, PhoneCall, Sparkles, Megaphone, Clock } from 'lucide-react'
+import { Calendar, GraduationCap, Award, Heart, CheckCircle2, ChevronRight, MessageSquare, PhoneCall, Sparkles, Megaphone, Clock, MapPin } from 'lucide-react'
 import { Botao } from '@/components/ui/Botao'
 import { Etiqueta } from '@/components/ui/Etiqueta'
 import { CartaoNoticia } from '@/components/conteudo/CartaoNoticia'
@@ -66,8 +66,13 @@ export default async function HomePage() {
             </h1>
 
             <p className="text-slate-200 text-base sm:text-xl max-w-2xl leading-relaxed font-sans">
-              Tradição pedagógica reconhecida em Rio Grande - RS, estrutura moderna com ginásio e auditório próprios, programa bilíngue e foco constante na formação humana integral do seu filho.
+              Tradição pedagógica reconhecida em Rio Grande - RS, no bairro Cidade Nova, com estrutura moderna, ginásio e auditório próprios, programa bilíngue e foco constante na formação humana integral do seu filho.
             </p>
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-white/5 px-3 py-1.5 text-xs sm:text-sm font-semibold text-amber-200 backdrop-blur-sm">
+              <MapPin className="w-4 h-4 text-amber-300" />
+              <span>Rua Doutor Augusto Duprat, 374 - Cidade Nova, Rio Grande - RS</span>
+            </div>
 
             {/* 4 Mandatory Action Buttons (RF01) */}
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">

@@ -41,7 +41,14 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900">Endereço</h3>
-                    <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">{settings.endereco}</p>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(settings.endereco)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-slate-600 text-xs mt-0.5 leading-relaxed hover:text-[#1E3A5F] hover:underline block"
+                    >
+                      {settings.endereco}
+                    </a>
                   </div>
                 </li>
 

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #1E3A5F;
-  --color-brand-dark: #152A47;
-  --color-brand-soft: #5C7A99;
+  --color-brand: #54000A;
+  --color-brand-dark: #0A0760;
+  --color-brand-soft: #398AEA;
   --color-brand-light: #EBF2FA;
   --color-accent: #D97706;
   --color-anniversary: #B8860B;
@@ -15,7 +15,7 @@
   --color-success: #16A34A;
   --color-error: #DC2626;
 
-  --font-display: var(--font-lora), Lora, Georgia, serif;
+  --font-display: var(--font-Poppins), Poppins, Georgia, serif;
   --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
 
   --radius-sm: 6px;
@@ -31,7 +31,7 @@
 }
 
 :root {
-  --font-lora: 'Lora', serif;
+  --font-poppins: 'Poppins', serif;
   --font-inter: 'Inter', sans-serif;
   --brand-primary: #1E3A5F;
   --brand-primary-dark: #152A47;
@@ -88,7 +88,7 @@ body {
 
 /* Base Typographic Utility Classes */
 .font-display {
-  font-family: var(--font-lora), Lora, Georgia, serif;
+  font-family: var(--font-poppins), Poppins, Georgia, serif;
 }
 
 .font-sans {
