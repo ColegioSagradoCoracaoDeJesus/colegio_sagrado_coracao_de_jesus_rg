@@ -28,7 +28,7 @@ const config: Config = {
         error: '#DC2626',
       },
       fontFamily: {
-        display: ['var(--font-lora)', 'Lora', 'Georgia', 'serif'],
+        display: ['var(--font-poppins)', 'Poppins', 'Georgia', 'serif'],
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
