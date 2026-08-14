@@ -132,51 +132,41 @@ export const DEFAULT_NOTICIAS: Noticia[] = [
   },
   {
     _id: 'n2',
-    titulo: 'Alunos do Ensino Médio Conquistam Prêmios na Olimpíada Paranaense de Robótica',
-    slug: { current: 'alunos-conquistam-premios-na-olimpiada-paranaense-de-robotica' },
-    data: '2026-08-02',
+    titulo: '[EXEMPLO] Título da Notícia Pedagógica a Preencher',
+    slug: { current: 'titulo-noticia-pedagogica' },
+    data: new Date().toISOString().split('T')[0],
     categoria: 'Pedagógico',
-    resumo: 'Equipe de tecnologia do Colégio desenvolveu protótipo sustentável de automação e conquistou o 1º lugar na categoria Destaque Inovação.',
-    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop',
-    destaque: true,
-  },
-  {
-    _id: 'n3',
-    titulo: 'Projeto de Leitura e Literatura Transforma Aprendizado na Educação Infantil',
-    slug: { current: 'projeto-de-leitura-transforma-aprendizado-na-educacao-infantil' },
-    data: '2026-07-25',
-    categoria: 'Pedagógico',
-    resumo: 'A atividade "Passaporte da Leitura" incentivou o contato diário das crianças com contos clássicos e produções autorais dos alunos.',
+    resumo: 'Descreva aqui o evento, projeto ou realização pedagógica do Colégio. Este é um exemplo para preenchimento no Sanity.',
     imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop',
     destaque: false,
   },
   {
-    _id: 'n4',
-    titulo: 'Ação Solidária de Inverno Arrecada Mais de 2 Toneladas de Agasalhos e Alimentos',
-    slug: { current: 'acao-solidaria-de-inverno-arrecada-2-toneladas-de-agasalhos' },
-    data: '2026-07-15',
-    categoria: ' Pastoral & Espiritualidade',
-    resumo: 'Mobilização da comunidade escolar fortalece valores de fraternidade e solidariedade junto a instituições assistenciais locais.',
+    _id: 'n3',
+    titulo: '[EXEMPLO] Ação Pastoral ou Comunitária a Descrever',
+    slug: { current: 'acao-pastoral-comunitaria' },
+    data: new Date().toISOString().split('T')[0],
+    categoria: 'Pastoral & Espiritualidade',
+    resumo: 'Descreva aqui as ações solidárias, pastorais ou comunitárias realizadas pelo Colégio. Preencha no Sanity com eventos reais.',
     imageUrl: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop',
     destaque: false,
   },
   {
-    _id: 'n5',
-    titulo: 'Feira das Profissões Reúne Especialistas e Orientação Vocacional para o Ensino Médio',
-    slug: { current: 'feira-das-profissoes-reune-especialistas-para-o-ensino-medio' },
-    data: '2026-06-28',
+    _id: 'n4',
+    titulo: '[EXEMPLO] Evento Institucional a Descrever',
+    slug: { current: 'evento-institucional' },
+    data: new Date().toISOString().split('T')[0],
     categoria: 'Institucional',
-    resumo: 'Estudantes conversaram com profissionais renomados, participaram de oficinas de carreira e simulados dos principais vestibulares.',
+    resumo: 'Descreva aqui eventos institucionais, campanhas ou iniciativas do Colégio. Atualize com dados reais no Sanity.',
     imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',
     destaque: false,
   },
   {
-    _id: 'n6',
-    titulo: 'Campeonato Intercolegial de Basquete e Futsal Movimenta o Ginásio Sagrado',
-    slug: { current: 'campeonato-intercolegial-movimenta-o-ginasio-sagrado' },
-    data: '2026-06-14',
+    _id: 'n5',
+    titulo: '[EXEMPLO] Evento de Esportes ou Cultura a Documentar',
+    slug: { current: 'evento-esportes-cultura' },
+    data: new Date().toISOString().split('T')[0],
     categoria: 'Esportes & Cultura',
-    resumo: 'Nossas equipes demonstraram espírito esportivo, fair play e excelente desempenho técnico diante de diversas escolas da região.',
+    resumo: 'Descreva aqui eventos esportivos, apresentações culturais ou atividades realizadas no Colégio. Preencha com informações reais.',
     imageUrl: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop',
     destaque: false,
   },
@@ -185,10 +175,10 @@ export const DEFAULT_NOTICIAS: Noticia[] = [
 export const DEFAULT_DIFERENCIAIS: Diferencial[] = [
   { _id: 'd1', titulo: 'Formação Humana e Valores', icone: 'Heart', textoCurto: 'Educação alicerçada no respeito, acolhimento, ética e responsabilidade social.', ordem: 1 },
   { _id: 'd2', titulo: 'Tradição dos 70 Anos', icone: 'Award', textoCurto: 'Sete décadas de história moldando cidadãos conscientes e preparados para o futuro.', ordem: 2 },
-  { _id: 'd3', titulo: 'Programa Bilingue e Global', icone: 'Globe', textoCurto: 'Imersão no idioma inglês com foco em fluência, cultura e certificações internacionais.', ordem: 3 },
-  { _id: 'd4', titulo: 'Tecnologia Educacional Avançada', icone: 'Cpu', textoCurto: 'Laboratórios de robótica, Plataforma Iônica e ecossistema digital integrado.', ordem: 4 },
+  { _id: 'd3', titulo: 'Programa Bilíngue e Global', icone: 'Globe', textoCurto: 'Imersão no idioma inglês com foco em fluência, cultura e certificações internacionais.', ordem: 3 },
+  { _id: 'd4', titulo: 'Tecnologia Integrada ao Aprendizado', icone: 'Cpu', textoCurto: 'Plataformas educacionais, laboratórios modernos e ecossistema digital de apoio pedagógico.', ordem: 4 },
   { _id: 'd5', titulo: 'Suporte Socioemocional', icone: 'Users', textoCurto: 'Equipe multidisciplinar de psicologia e orientação pedagógica permanente.', ordem: 5 },
-  { _id: 'd6', titulo: 'Segurança e Estrutura Completa', icone: 'ShieldCheck', textoCurto: 'Monitoramento 24h, amplos espaços esportivos, auditório e ambientes climatizados.', ordem: 6 },
+  { _id: 'd6', titulo: 'Segurança e Infraestrutura Completa', icone: 'ShieldCheck', textoCurto: 'Espaços amplos, seguros e bem equipados para o desenvolvimento integral dos alunos.', ordem: 6 },
 ]
 
 export const DEFAULT_MODALIDADES: ModalidadeEnsino[] = [
@@ -206,10 +196,10 @@ export const DEFAULT_MODALIDADES: ModalidadeEnsino[] = [
     ],
     metodologia: 'Metodologia afetiva e investigativa, onde a criança é protagonista de suas descobertas. Utilizamos jogos pedagógicos, projetos temáticos e vivências ao ar livre.',
     diferenciais: [
-      'Parque infantil exclusivo e arborizado',
-      'Iniciação ao inglês de forma lúdica',
-      'Acompanhamento nutricional e ambiente seguro',
-      'Salas de aulas lúdicas e climatizadas'
+      'Ambiente seguro, acolhedor e estimulante',
+      'Propostas de aprendizado integradas e lúdicas',
+      'Acompanhamento às necessidades individuais de cada criança',
+      'Espaços apropriados e climatizados'
     ],
     projetos: [
       { nome: 'Passaporte da Leitura', descricao: 'Incentivo diário ao contato com livros infantis com participação da família.' },
@@ -231,10 +221,10 @@ export const DEFAULT_MODALIDADES: ModalidadeEnsino[] = [
     ],
     metodologia: 'Aprendizagem significativa integrando disciplinas através de projetos interdisciplinares, cultura maker e resolução de problemas práticos do dia a dia.',
     diferenciais: [
-      'Aulas de Robótica e Raciocínio Lógico',
-      'Programa Bilíngue em parceria internacional',
-      'Feiras de Ciências e Artes anuais',
-      'Reforço escolar e acompanhamento individualizado'
+      'Atividades de raciocínio lógico e resolução de problemas',
+      'Programa bilíngue com imersão em inglês',
+      'Projetos práticos e interdisciplinares',
+      'Acompanhamento e reforço personalizado'
     ],
     projetos: [
       { nome: 'Jovens Escritores', descricao: 'Produção e autoria de livros pelos próprios alunos com noite de autógrafos.' },
@@ -254,12 +244,12 @@ export const DEFAULT_MODALIDADES: ModalidadeEnsino[] = [
       'Incentivar a liderança, protagonismo e o trabalho em equipe',
       'Fortalecer a inteligência emocional e a resiliência'
     ],
-    metodologia: 'Metodologias ativas, uso de laboratórios modernos de ciências e informática, aulas de campo e participação em olimpíadas de conhecimento.',
+    metodologia: 'Metodologias ativas, uso de laboratórios de ciências e informática, aulas de campo e projetos desafiadores.',
     diferenciais: [
-      'Preparação para Olimpíadas de Matemática, Física e Robótica',
-      'Acompanhamento de orientação vocacional inicial',
-      'Torneios esportivos internos e intercolegiais',
-      'Plataforma digital com acervo de exercícios e videoaulas'
+      'Projetos interdisciplinares e desafiadores',
+      'Acompanhamento de orientação vocacional',
+      'Atividades esportivas e culturais',
+      'Plataforma digital com recursos educacionais'
     ],
     projetos: [
       { nome: 'Simulação da ONU Jr.', descricao: 'Debates geopolíticos onde os alunos representam nações globais.' },
@@ -272,19 +262,19 @@ export const DEFAULT_MODALIDADES: ModalidadeEnsino[] = [
     nome: 'Ensino Médio',
     slug: { current: 'ensino-medio' },
     faixaEtaria: '1ª à 3ª série (15 a 17 anos)',
-    resumo: 'Excelência acadêmica focada nos melhores vestibulares e no ENEM, aliada a um sólido projeto de vida e formação cidadã global.',
+    resumo: 'Formação integral com foco no aprofundamento dos conhecimentos e no desenvolvimento de habilidades para o futuro, aliada à formação cidadã e projeto de vida.',
     objetivos: [
-      'Alcançar alto rendimento no ENEM e vestibulares das universidades de topo',
-      'Consolidar a capacidade analítica, redação nota 1000 e raciocínio crítico',
+      'Consolidar a capacidade analítica, argumentativa e pensamento crítico',
+      'Aprofundar conhecimentos nas diferentes áreas do conhecimento',
       'Construir o Projeto de Vida individual do estudante',
       'Formar líderes éticos com visão global e responsabilidade social'
     ],
-    metodologia: 'Matriz curricular aprofundada, simulados periódicos estilo ENEM, material didático de alta performance, plantões de dúvidas e orientação acadêmica personalizada.',
+    metodologia: 'Matriz curricular abrangente, aulas desafiadoras, material didático de qualidade, monitoria e orientação acadêmica personalizada.',
     diferenciais: [
-      'Simulados ENEM e Vestibulares com relatório individual de desempenho',
-      'Oficinas intensivas de Redação com correção detalhada',
-      'Plataforma Iônica de aprendizagem adaptativa',
-      'Orientação Vocacional e Feira das Profissões'
+      'Preparação acadêmica sólida e abrangente',
+      'Trabalho com linguagem, interpretação e argumentação',
+      'Recursos e plataformas educacionais de apoio',
+      'Orientação de projetos de vida e desenvolvimento pessoal'
     ],
     projetos: [
       { nome: 'Mentoria Vestibular Sagrado', descricao: 'Tutoria individualizada para plano de estudo semanal.' },
@@ -370,7 +360,7 @@ export const DEFAULT_ESTRUTURA: AmbienteEstrutura[] = [
   {
     _id: 'est3',
     ambiente: 'Laboratórios de Ciências e Informática',
-    descricao: 'Bancadas equipadas para experimentos de Física, Química e Biologia, além de computadores atualizados para robótica.',
+    descricao: 'Bancadas equipadas para experimentos de Física, Química e Biologia, além de computadores e recursos tecnológicos para o aprendizado.',
     fotos: [{ url: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop', alt: 'Laboratório de ciências' }]
   },
   {
@@ -485,7 +475,15 @@ export async function getEstrutura(): Promise<AmbienteEstrutura[]> {
   if (!isSanityConfigured) return DEFAULT_ESTRUTURA
   try {
     const res = await client.fetch(`*[_type == "paginaEstrutura"] | order(ordem asc)`)
-    return res && res.length > 0 ? res : DEFAULT_ESTRUTURA
+
+    if (!Array.isArray(res) || res.length === 0) {
+      return DEFAULT_ESTRUTURA
+    }
+
+    return res.map((item) => ({
+      ...item,
+      fotos: Array.isArray(item?.fotos) ? item.fotos : [],
+    }))
   } catch (err) {
     return DEFAULT_ESTRUTURA
   }
@@ -511,9 +509,9 @@ export async function getGaleriasMes(): Promise<GaleriaMes[]> {
       titulo: 'Feira das Profissões e Tecnologia',
       mes: 'Julho',
       ano: 2026,
-      descricao: 'Oficinas práticas de robótica, estandes universitários e simulações com os alunos do Ensino Médio.',
+      descricao: '[EXEMPLO] Descrição de evento a preencher - Atividades e apresentações do mês.',
       fotos: [
-        { url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop', alt: 'Demonstração de robótica', descricao: 'Projeto de Automação de Alunos' },
+        { url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop', alt: '[EXEMPLO] Imagem do evento', descricao: '[EXEMPLO] Descrição do evento' },
         { url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop', alt: 'Palestra com profissionais convidados', descricao: 'Roda de Conversa sobre Carreiras' },
         { url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop', alt: 'Oficina de ciências aplicadas', descricao: 'Experimentos em Laboratório' },
       ],

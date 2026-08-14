@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Cpu, Laptop, ExternalLink, ShieldCheck, Smartphone, BookOpen, Sparkles } from 'lucide-react'
+import { Cpu, Laptop, ExternalLink, ShieldCheck, Smartphone, BookOpen, Sparkles, AlertCircle } from 'lucide-react'
 import { MigalhaDePao } from '@/components/ui/MigalhaDePao'
 import { Etiqueta } from '@/components/ui/Etiqueta'
 import { Botao } from '@/components/ui/Botao'
@@ -8,7 +8,7 @@ import { BlocoCTA } from '@/components/conteudo/BlocoCTA'
 
 export const metadata = {
   title: 'Tecnologia Educacional | Diário Escola e Plataforma Iônica',
-  description: 'Conheça as plataformas digitais, laboratórios de robótica e ecossistema de aprendizagem da Plataforma Iônica e Diário Escola.',
+  description: 'Conheça as plataformas digitais e ecossistema de aprendizagem da Plataforma Iônica e Diário Escola.',
 }
 
 export default function TecnologiaEducacionalPage() {
@@ -19,9 +19,9 @@ export default function TecnologiaEducacionalPage() {
       <section className="bg-[#1E3A5F] text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Ecossistema Digital</Etiqueta>
-          <h1 className="font-display text-h1 font-bold text-white">Tecnologia Educacional</h1>
+          <h1 className="font-display text-h1 font-bold text-white">Recursos e Plataformas Educacionais</h1>
           <p className="text-slate-200 text-body max-w-2xl mx-auto leading-relaxed">
-            Ferramentas digitais de última geração integradas ao cotidiano pedagógico e à comunicação transparente com as famílias.
+            Ferramentas e plataformas de apoio ao processo pedagógico e comunicação entre Escola e Famílias.
           </p>
         </div>
       </section>
@@ -42,7 +42,10 @@ export default function TecnologiaEducacionalPage() {
               <h2 className="font-display font-bold text-2xl text-slate-900">Diário Escola</h2>
 
               <p className="text-slate-600 text-sm leading-relaxed">
-                Aplicativo oficial do Colégio para acompanhamento diário da rotina escolar dos alunos da Educação Infantil e Ensino Fundamental.
+                Plataforma de comunicação e acompanhamento de rotina escolar para Educação Infantil e Ensino Fundamental.
+              </p>
+              <p className="text-xs text-slate-500 italic bg-slate-50 p-2 rounded border border-slate-300">
+                Plataforma fornecida e gerenciada por parceiro educacional.
               </p>
 
               <ul className="space-y-2 text-xs text-slate-700">
@@ -82,7 +85,10 @@ export default function TecnologiaEducacionalPage() {
               <h2 className="font-display font-bold text-2xl text-slate-900">Plataforma Iônica</h2>
 
               <p className="text-slate-600 text-sm leading-relaxed">
-                Ambiente virtual de aprendizagem utilizado do Ensino Fundamental ao Ensino Médio para materiais didáticos digitais e simulados.
+                Ambiente virtual de aprendizagem utilizado do Ensino Fundamental ao Ensino Médio com materiais didáticos digitais e recursos educacionais.
+              </p>
+              <p className="text-xs text-slate-500 italic bg-slate-50 p-2 rounded border border-slate-300">
+                Plataforma fornecida e gerenciada por parceiro educacional (FTD Educação).
               </p>
 
               <ul className="space-y-2 text-xs text-slate-700">
@@ -92,7 +98,7 @@ export default function TecnologiaEducacionalPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
-                  <span>Trilhas de exercícios adaptativos e simulados ENEM</span>
+                  <span>Trilhas de exercícios adaptativos e recursos interativos</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
@@ -110,24 +116,17 @@ export default function TecnologiaEducacionalPage() {
           </div>
         </div>
 
-        {/* Robotics & STEAM */}
-        <section className="bg-slate-50 p-8 sm:p-10 rounded-lg border border-slate-200">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <Etiqueta variant="brand">Cultura Maker & STEAM</Etiqueta>
-              <h3 className="font-display font-bold text-2xl text-slate-900">Laboratório de Robótica & Raciocínio Lógico</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Nossos alunos aprendem programação, montagem de protótipos e resolução de problemas através de um currículo prático de robótica alinhado com desafios mundiais de inovação.
-              </p>
-            </div>
-            <div className="lg:col-span-5 relative h-60 rounded-md overflow-hidden bg-slate-200">
-              <Image
-                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop"
-                alt="Alunos aprendendo robótica"
-                fill
-                className="object-cover"
-              />
-            </div>
+        {/* Infographic Note */}
+        <section className="bg-blue-50 p-8 rounded-lg border-l-4 border-[#1E3A5F]">
+          <div className="space-y-3">
+            <h3 className="font-display font-bold text-lg text-slate-900">💡 Nota Importante</h3>
+            <p className="text-slate-700 text-sm leading-relaxed">
+              O Colégio Sagrado Coração de Jesus utiliza plataformas e recursos educacionais reconhecidos no mercado, fornecidos por parceiros especializados, 
+              integrados ao currículo pedagógico para enriquecer o processo de ensino e aprendizagem.
+            </p>
+            <p className="text-xs text-slate-600 italic">
+              As plataformas, softwares e materiais digitais são ferramentas de apoio gerenciadas e atualizadas pelos respectivos fornecedores.
+            </p>
           </div>
         </section>
 
