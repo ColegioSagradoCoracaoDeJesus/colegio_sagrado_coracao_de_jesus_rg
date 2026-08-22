@@ -1,6 +1,7 @@
 import React from 'react'
 import { Calendar, PhoneCall, Award, ArrowRight } from 'lucide-react'
 import { Botao } from '../ui/Botao'
+import { getSiteSettings } from '@/lib/sanity/queries'
 
 interface BlocoCTAProps {
   titulo?: string
@@ -8,13 +9,15 @@ interface BlocoCTAProps {
   badge?: string
 }
 
-export const BlocoCTA: React.FC<BlocoCTAProps> = ({
+export async function BlocoCTA({
   titulo = 'Matrículas Abertas em Rio Grande - RS',
   subtitulo = 'Visite o Colégio Sagrado Coração de Jesus, em Cidade Nova, e descubra uma educação de excelência para a Educação Infantil, Fundamental e Médio, com acolhimento, tradição e estrutura moderna.',
   badge = 'Matrículas & Rematrículas 2027',
-}) => {
+}: BlocoCTAProps) {
+  const settings = await getSiteSettings()
+
   return (
-    <section className="bg-gradient-to-r from-[#1E3A5F] via-[#152A47] to-[#1E3A5F] text-white py-14 px-4 rounded-lg shadow-xl relative overflow-hidden my-12 border-2 border-[#B8860B]/40">
+    <section className="bg-gradient-to-r from-brand via-brand-dark to-brand text-white py-14 px-4 rounded-lg shadow-xl relative overflow-hidden my-12 border-2 border-[#B8860B]/40">
       {/* Decorative background glow */}
       <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#B8860B]/10 blur-3xl pointer-events-none" />
       <div className="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
@@ -42,7 +45,7 @@ export const BlocoCTA: React.FC<BlocoCTAProps> = ({
             <Calendar className="w-5 h-5" />
             <span>Agendar Visita Guiada</span>
           </Botao>
-          <Botao href="https://wa.me/555332325531" external variant="white" size="lg">
+          <Botao href={`https://wa.me/${settings.whatsapp}`} external variant="white" size="lg">
             <PhoneCall className="w-5 h-5 text-emerald-600" />
             <span>Falar com a Secretaria</span>
           </Botao>

@@ -24,7 +24,6 @@ export default async function HomePage() {
   const depoimentos = await getDepoimentos()
   const parceiros = await getParceiros()
 
-  const noticiasDestaque = notizie.filter((n) => n.destaque).slice(0, 2)
   const outrasNoticias = notizie.slice(0, 3)
 
   // Dynamic avisos mock/data (hides automatically if empty)
@@ -41,7 +40,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-16 pb-12">
       {/* SECTION 1: HERO BANNER (RF01, RF02) */}
-      <section className="relative bg-[#1E3A5F] text-white py-16 lg:py-24 px-4 overflow-hidden border-b-4 border-[#B8860B]">
+      <section className="relative bg-brand text-white py-16 lg:py-24 px-4 overflow-hidden border-b-4 border-[#B8860B]">
         {/* Background Image Overlay with dark gradient */}
         <div className="absolute inset-0 z-0 opacity-25">
           <Image
@@ -52,7 +51,7 @@ export default async function HomePage() {
             className="object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#152A47] via-[#1E3A5F]/90 to-[#152A47]/80 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand/90 to-brand-dark/80 z-0" />
 
         <div className="max-w-[1280px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 space-y-6 text-center lg:text-left">
@@ -81,7 +80,7 @@ export default async function HomePage() {
                 <span>Matrículas & Rematrículas</span>
               </Botao>
 
-              <Botao href="/nossa-historia" variant="outline" size="md" fullWidth className="border-white text-white hover:bg-white hover:text-[#1E3A5F]">
+              <Botao href="/nossa-historia" variant="outline" size="md" fullWidth className="border-white text-white hover:bg-white hover:text-brand">
                 <Award className="w-4 h-4" />
                 <span>Conheça o Colégio</span>
               </Botao>
@@ -92,7 +91,7 @@ export default async function HomePage() {
               </Botao>
 
               <Botao href="/contato" variant="white" size="md" fullWidth>
-                <PhoneCall className="w-4 h-4 text-[#1E3A5F]" />
+                <PhoneCall className="w-4 h-4 text-brand" />
                 <span>Fale Conosco</span>
               </Botao>
             </div>
@@ -139,7 +138,7 @@ export default async function HomePage() {
         <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-sm sm:p-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Escola em Rio Grande - RS</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Escola em Rio Grande - RS</p>
               <h2 className="mt-2 font-display text-h2 font-bold text-slate-900">Educação de qualidade para famílias da região</h2>
               <p className="mt-3 text-slate-600 leading-relaxed">
                 O Colégio Sagrado Coração de Jesus está localizado no bairro Cidade Nova, em Rio Grande - RS, e oferece uma proposta educativa completa para a Educação Infantil, Ensino Fundamental e Ensino Médio. Com 70 anos de tradição, o Colégio combina acolhimento, valores, excelência acadêmica e uma infraestrutura moderna para o desenvolvimento integral dos estudantes.
@@ -148,15 +147,15 @@ export default async function HomePage() {
 
             <div className="grid gap-3 sm:grid-cols-3 lg:w-[360px]">
               <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
-                <div className="text-lg font-bold text-[#1E3A5F]">70 anos</div>
+                <div className="text-lg font-bold text-brand">70 anos</div>
                 <div className="text-xs text-slate-600">de tradição</div>
               </div>
               <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
-                <div className="text-lg font-bold text-[#1E3A5F]">Educação</div>
+                <div className="text-lg font-bold text-brand">Educação</div>
                 <div className="text-xs text-slate-600">Integral</div>
               </div>
               <div className="rounded-lg border border-slate-200 bg-white p-3 text-center shadow-sm">
-                <div className="text-lg font-bold text-[#1E3A5F]">Rio Grande</div>
+                <div className="text-lg font-bold text-brand">Rio Grande</div>
                 <div className="text-xs text-slate-600">- RS</div>
               </div>
             </div>
@@ -211,7 +210,7 @@ export default async function HomePage() {
                   <Image src={m.imageUrl} alt={m.nome} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 )}
                 <div className="absolute top-3 left-3">
-                  <span className="bg-[#1E3A5F] text-white text-xs font-bold px-2.5 py-1 rounded">
+                  <span className="bg-brand text-white text-xs font-bold px-2.5 py-1 rounded">
                     {m.faixaEtaria}
                   </span>
                 </div>
@@ -219,7 +218,7 @@ export default async function HomePage() {
 
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-xl text-slate-900 mb-2 group-hover:text-[#1E3A5F] transition-colors">
+                  <h3 className="font-display font-bold text-xl text-slate-900 mb-2 group-hover:text-brand transition-colors">
                     {m.nome}
                   </h3>
                   <p className="text-slate-600 text-xs line-clamp-3 leading-relaxed mb-4">
@@ -227,7 +226,7 @@ export default async function HomePage() {
                   </p>
                 </div>
 
-                <Link href="/ensino" className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3A5F] hover:text-[#D97706] transition-colors">
+                <Link href="/ensino" className="inline-flex items-center gap-1 text-xs font-bold text-brand hover:text-[#D97706] transition-colors">
                   <span>Conhecer modalidade</span>
                   <ChevronRight className="w-4 h-4" />
                 </Link>
@@ -287,7 +286,7 @@ export default async function HomePage() {
       <CarroselParceiros parceiros={parceiros} />
 
       {/* SECTION 6: TESTEMUNHOS DOS 70 ANOS (RF08) */}
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <Etiqueta variant="anniversary">Vozes da Nossa História</Etiqueta>
@@ -299,7 +298,7 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {depoimentos.map((dep) => (
-              <div key={dep._id} className="bg-[#152A47] p-6 rounded-md border border-[#B8860B]/40 shadow-lg flex flex-col justify-between">
+              <div key={dep._id} className="bg-brand-dark p-6 rounded-md border border-[#B8860B]/40 shadow-lg flex flex-col justify-between">
                 <p className="italic text-slate-200 text-sm leading-relaxed mb-6">
                   “{dep.texto}”
                 </p>

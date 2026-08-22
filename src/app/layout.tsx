@@ -81,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: 'Colégio Sagrado Coração de Jesus',
     alternateName: 'Colégio Sagrado Coração',
     url: 'https://sagradocoracao.g12.br',
-    logo: 'https://sagradocoracao.g12.br/logo.png',
+    logo: 'https://sagradocoracao.g12.br/logotipo.png',
     foundingDate: '1956',
     description: 'Colégio em Rio Grande - RS com Educação Infantil, Ensino Fundamental, Ensino Médio e forte tradição de educação integral.',
     address: {

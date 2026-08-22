@@ -580,7 +580,11 @@ export async function getGaleriasMes(): Promise<GaleriaMes[]> {
 export async function getParceiros(): Promise<Parceiro[]> {
   if (!isSanityConfigured) return DEFAULT_PARCEIROS
   try {
-    const siteSettings = await client.fetch(`*[_type == "siteSettings"][0].parceiros[] -> {
+    // Busca os documentos "parceiro" diretamente (mesmo padrão de getDiferenciais,
+    // getModalidades etc.) em vez de depender do array de referências opcional em
+    // siteSettings.parceiros — assim, um novo parceiro cadastrado no Sanity aparece
+    // no site sem precisar de um segundo passo manual em "Configurações Globais".
+    const res = await client.fetch(`*[_type == "parceiro" && ativo != false] | order(ordem asc) {
       _id,
       nome,
       descricao,
@@ -590,17 +594,14 @@ export async function getParceiros(): Promise<Parceiro[]> {
       logo { asset -> { _ref } }
     }`)
 
-    if (!Array.isArray(siteSettings)) return DEFAULT_PARCEIROS
+    if (!Array.isArray(res)) return DEFAULT_PARCEIROS
 
-    const parceirosComImagem = siteSettings
-      .filter((p: any) => p.ativo !== false)
-      .sort((a: any, b: any) => (a.ordem || 0) - (b.ordem || 0))
-      .map((parceiro: any) => ({
-        ...parceiro,
-        logoUrl: parceiro.logo?.asset?._ref
-          ? urlForImage({ asset: { _ref: parceiro.logo.asset._ref } })?.url() || undefined
-          : undefined,
-      }))
+    const parceirosComImagem = res.map((parceiro: any) => ({
+      ...parceiro,
+      logoUrl: parceiro.logo?.asset?._ref
+        ? urlForImage({ asset: { _ref: parceiro.logo.asset._ref } })?.url() || undefined
+        : undefined,
+    }))
 
     return parceirosComImagem.length > 0 ? parceirosComImagem : DEFAULT_PARCEIROS
   } catch (err) {

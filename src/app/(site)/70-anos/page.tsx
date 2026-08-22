@@ -56,7 +56,7 @@ export default async function SetentaAnosPage() {
       <MigalhaDePao items={[{ label: '70 Anos' }]} />
 
       {/* Hero Banner Gold */}
-      <section className="bg-gradient-to-r from-[#152A47] via-[#1E3A5F] to-[#152A47] text-white py-20 px-4 border-b-4 border-[#B8860B] relative overflow-hidden">
+      <section className="bg-gradient-to-r from-brand-dark via-brand to-brand-dark text-white py-20 px-4 border-b-4 border-[#B8860B] relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#B8860B_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
 
         <div className="max-w-[1280px] mx-auto text-center relative z-10 space-y-6">
@@ -102,7 +102,7 @@ export default async function SetentaAnosPage() {
             <h2 className="font-display text-h2 font-bold text-slate-900">A Nossa História Ano a Ano</h2>
           </div>
 
-          <div className="relative border-l-2 md:border-l-0 md:before:absolute md:before:left-1/2 md:before:-translate-x-1/2 md:before:w-1 md:before:h-full md:before:bg-[#1E3A5F]/20">
+          <div className="relative border-l-2 md:border-l-0 md:before:absolute md:before:left-1/2 md:before:-translate-x-1/2 md:before:w-1 md:before:h-full md:before:bg-brand/20">
             {linhaTempo.map((item, idx) => (
               <ItemLinhaDoTempo key={item._id} item={item} isEven={idx % 2 === 0} />
             ))}
@@ -117,7 +117,7 @@ export default async function SetentaAnosPage() {
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">Programação dos 70 Anos</h2>
               <p className="text-slate-300 text-sm mt-1">Participe dos eventos festivos ao longo do ano comemorativo.</p>
             </div>
-            <Botao href="https://wa.me/5541999997000" external variant="anniversary" size="md">
+            <Botao href="https://wa.me/555332325531" external variant="anniversary" size="md">
               <Ticket className="w-4 h-4" />
               <span>Informações sobre Convites / Ingressos</span>
             </Botao>
@@ -125,7 +125,7 @@ export default async function SetentaAnosPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {programacao70Anos.map((prog, idx) => (
-              <div key={idx} className="bg-[#152A47] p-6 rounded-md border border-slate-700 space-y-4 flex flex-col justify-between">
+              <div key={idx} className="bg-brand-dark p-6 rounded-md border border-slate-700 space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-500/20 px-3 py-1 rounded">
                     <Calendar className="w-3.5 h-3.5" />
@@ -146,14 +146,14 @@ export default async function SetentaAnosPage() {
           </div>
 
           {/* Directing for ticket info without processing online payment */}
-          <div className="p-4 bg-[#1E3A5F] rounded-md border border-slate-700 text-xs text-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="p-4 bg-brand rounded-md border border-slate-700 text-xs text-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-amber-400 shrink-0" />
               <span>
                 <strong>Como adquirir seu convite:</strong> Os convites para os eventos dos 70 anos são retirados diretamente na Secretaria do Colégio ou reservados pelo WhatsApp oficial, sem cobrança de taxas de intermediação online.
               </span>
             </div>
-            <Botao href="https://wa.me/5541999997000" external variant="white" size="sm" className="shrink-0">
+            <Botao href="https://wa.me/555332325531" external variant="white" size="sm" className="shrink-0">
               Reservar via WhatsApp
             </Botao>
           </div>
@@ -171,12 +171,12 @@ export default async function SetentaAnosPage() {
               <div key={dep._id} className="bg-white p-6 rounded-md border border-slate-200 shadow-sm space-y-4">
                 <p className="italic text-slate-700 text-sm leading-relaxed">“{dep.texto}”</p>
                 <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#1E3A5F] text-white font-bold flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-brand text-white font-bold flex items-center justify-center">
                     {dep.nome.charAt(0)}
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">{dep.nome}</h4>
-                    <p className="text-xs text-[#5C7A99] font-medium">{dep.relacao}</p>
+                    <p className="text-xs text-brand-dark font-medium">{dep.relacao}</p>
                   </div>
                 </div>
               </div>

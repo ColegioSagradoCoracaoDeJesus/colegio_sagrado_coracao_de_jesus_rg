@@ -18,7 +18,7 @@ export function CarroselParceiros({ parceiros }: CarroselParceirosProps) {
     <section className="py-16 bg-gradient-to-b from-white to-slate-50" aria-label="Empresas Parceiras">
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Parceiros</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Parceiros</p>
           <h2 className="mt-3 font-display text-h1 font-bold text-slate-900">Empresas Parceiras</h2>
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             Conheça as empresas que colaboram com o Colégio Sagrado e fortalecem projetos, experiências e oportunidades para a nossa comunidade.
@@ -59,7 +59,7 @@ export function CarroselParceiros({ parceiros }: CarroselParceirosProps) {
                     href={parceiro.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center text-xs font-semibold text-[#1E3A5F] transition-colors hover:text-[#D97706]"
+                    className="mt-3 inline-flex items-center text-xs font-semibold text-brand transition-colors hover:text-[#D97706]"
                     aria-label={`Visitar site de ${parceiro.nome}`}
                   >
                     Visitar site

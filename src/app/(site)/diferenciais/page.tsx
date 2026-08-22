@@ -17,7 +17,7 @@ export default async function DiferenciaisPage() {
     <div>
       <MigalhaDePao items={[{ label: 'Diferenciais' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Marca do Sagrado</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Nossos Diferenciais</h1>

@@ -24,7 +24,7 @@ export const CartaoEspaco: React.FC<CartaoEspacoProps> = ({ espaco, onSolicitarO
             className="object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#1E3A5F] text-white font-display text-xl font-bold p-6 text-center">
+          <div className="w-full h-full flex items-center justify-center bg-brand text-white font-display text-xl font-bold p-6 text-center">
             {espaco.nome}
           </div>
         )}
@@ -60,7 +60,7 @@ export const CartaoEspaco: React.FC<CartaoEspacoProps> = ({ espaco, onSolicitarO
               <ul className="space-y-1.5 text-xs text-slate-700">
                 {espaco.itensDisponiveis.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-1.5">
-                    <span className="text-[#1E3A5F] font-bold">•</span>
+                    <span className="text-brand font-bold">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -86,7 +86,7 @@ export const CartaoEspaco: React.FC<CartaoEspacoProps> = ({ espaco, onSolicitarO
           {espaco.condicoesGerais && (
             <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-md text-xs text-slate-600 mb-6">
               <p className="font-semibold text-slate-900 mb-0.5 flex items-center gap-1">
-                <FileText className="w-3.5 h-3.5 text-[#5C7A99]" />
+                <FileText className="w-3.5 h-3.5 text-brand-dark" />
                 <span>Condições e Regras Gerais:</span>
               </p>
               <p>{espaco.condicoesGerais}</p>

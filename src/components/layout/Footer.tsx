@@ -2,14 +2,18 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Award, ChevronRight, ExternalLink } from 'lucide-react'
-import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
+import { DEFAULT_SITE_SETTINGS, type SiteSettings } from '@/lib/sanity/queries'
 
-export const Footer: React.FC = () => {
-  const mapsQuery = encodeURIComponent(DEFAULT_SITE_SETTINGS.endereco)
+interface FooterProps {
+  settings?: SiteSettings
+}
+
+export const Footer: React.FC<FooterProps> = ({ settings = DEFAULT_SITE_SETTINGS }) => {
+  const mapsQuery = encodeURIComponent(settings.endereco)
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
 
   return (
-    <footer className="bg-[#152A47] text-slate-200 pt-14 pb-8 border-t-4 border-[#B8860B]">
+    <footer className="bg-brand-dark text-slate-200 pt-14 pb-8 border-t-4 border-[#B8860B]">
       <div className="max-w-[1280px] mx-auto px-4">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-700/60">
@@ -29,7 +33,7 @@ export const Footer: React.FC = () => {
               Há 70 anos formando gerações com excelência acadêmica, acolhimento humano, ética e valores cristãos em Rio Grande - RS.
             </p>
 
-            <div className="p-3.5 rounded-lg bg-[#1E3A5F]/60 border border-[#B8860B]/40 flex items-center gap-3">
+            <div className="p-3.5 rounded-lg bg-brand/60 border border-[#B8860B]/40 flex items-center gap-3">
               <Award className="w-8 h-8 text-amber-400 shrink-0" />
               <div className="text-xs">
                 <p className="font-bold text-amber-200">Jubileu de Vinho — 70 Anos</p>
@@ -143,7 +147,7 @@ export const Footer: React.FC = () => {
                     rel="noreferrer"
                     className="text-slate-200 hover:text-amber-300 hover:underline font-medium leading-relaxed block"
                   >
-                    {DEFAULT_SITE_SETTINGS.endereco}
+                    {settings.endereco}
                   </a>
                   <p className="text-[11px] uppercase tracking-[0.12em] text-amber-300 font-semibold">
                     Colégio em Cidade Nova, Rio Grande - RS
@@ -153,7 +157,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                 <div className="flex flex-col">
-                  {DEFAULT_SITE_SETTINGS.telefones.map((tel, idx) => (
+                  {settings.telefones.map((tel, idx) => (
                     <a key={idx} href={`tel:${tel.replace(/\D/g, '')}`} className="hover:underline text-slate-200">
                       {tel}
                     </a>
@@ -162,13 +166,13 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`mailto:${DEFAULT_SITE_SETTINGS.email}`} className="hover:underline truncate text-slate-200">
-                  {DEFAULT_SITE_SETTINGS.email}
+                <a href={`mailto:${settings.email}`} className="hover:underline truncate text-slate-200">
+                  {settings.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>{DEFAULT_SITE_SETTINGS.horarioAtendimento}</span>
+                <span>{settings.horarioAtendimento}</span>
               </li>
             </ul>
           </div>

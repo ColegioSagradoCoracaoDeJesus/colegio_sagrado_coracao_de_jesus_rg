@@ -19,7 +19,7 @@ export const ItemLinhaDoTempo: React.FC<ItemLinhaDoTempoProps> = ({ item, isEven
             <span>{item.ano}</span>
           </div>
 
-          <h3 className="font-display font-bold text-xl text-[#1E3A5F] mb-2">{item.titulo}</h3>
+          <h3 className="font-display font-bold text-xl text-brand mb-2">{item.titulo}</h3>
 
           <p className="text-slate-600 text-sm leading-relaxed mb-4">{item.descricao}</p>
 
@@ -32,7 +32,7 @@ export const ItemLinhaDoTempo: React.FC<ItemLinhaDoTempoProps> = ({ item, isEven
       </div>
 
       {/* Timeline Node */}
-      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#1E3A5F] border-4 border-amber-400 items-center justify-center text-white z-10 shadow">
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-brand border-4 border-amber-400 items-center justify-center text-white z-10 shadow">
         <div className="w-2 h-2 rounded-full bg-white"></div>
       </div>
 

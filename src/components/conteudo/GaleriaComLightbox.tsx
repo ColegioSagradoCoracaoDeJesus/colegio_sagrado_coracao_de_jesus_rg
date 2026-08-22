@@ -68,7 +68,7 @@ export const GaleriaComLightbox: React.FC<GaleriaComLightboxProps> = ({ fotos, t
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-[#1E3A5F] text-white text-xs">
+              <div className="w-full h-full flex items-center justify-center bg-brand text-white text-xs">
                 Foto Sagrado
               </div>
             )}

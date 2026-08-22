@@ -21,12 +21,12 @@ export const CartaoDiferencial: React.FC<CartaoDiferencialProps> = ({ diferencia
   const icon = iconMap[diferencial.icone] || <Sparkles className="w-7 h-7 text-amber-600" />
 
   return (
-    <div className="bg-white p-6 rounded-md border border-slate-200 shadow-sm hover:shadow-md hover:border-[#1E3A5F]/30 transition-all duration-300 flex flex-col justify-between group">
+    <div className="bg-white p-6 rounded-md border border-slate-200 shadow-sm hover:shadow-md hover:border-brand/30 transition-all duration-300 flex flex-col justify-between group">
       <div>
-        <div className="w-14 h-14 rounded-lg bg-amber-500/10 border border-amber-400/30 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#1E3A5F] group-hover:text-white transition-all">
+        <div className="w-14 h-14 rounded-lg bg-amber-500/10 border border-amber-400/30 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all">
           {icon}
         </div>
-        <h3 className="font-display font-bold text-lg text-slate-900 mb-2 group-hover:text-[#1E3A5F] transition-colors">
+        <h3 className="font-display font-bold text-lg text-slate-900 mb-2 group-hover:text-brand transition-colors">
           {diferencial.titulo}
         </h3>
         <p className="text-slate-600 text-sm leading-relaxed">

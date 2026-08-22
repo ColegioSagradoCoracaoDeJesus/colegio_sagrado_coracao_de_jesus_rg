@@ -15,7 +15,7 @@
   --color-success: #16A34A;
   --color-error: #DC2626;
 
-  --font-display: var(--font-Poppins), Poppins, Georgia, serif;
+  --font-display: var(--font-poppins), Poppins, Georgia, serif;
   --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
 
   --radius-sm: 6px;
@@ -31,13 +31,11 @@
 }
 
 :root {
-  --font-poppins: 'Poppins', serif;
+  /* O peso "display" foi carregado como Lora (next/font/google, ver layout.tsx) —
+     apontamos o token --font-poppins pra ela em vez de um "Poppins" nunca
+     carregado, senão os títulos caíam para a serifa padrão do navegador. */
+  --font-poppins: var(--font-lora), Georgia, serif;
   --font-inter: 'Inter', sans-serif;
-  --brand-primary: #1E3A5F;
-  --brand-primary-dark: #152A47;
-  --brand-secondary: #5C7A99;
-  --brand-accent: #D97706;
-  --brand-anniversary: #B8860B;
 }
 
 html {

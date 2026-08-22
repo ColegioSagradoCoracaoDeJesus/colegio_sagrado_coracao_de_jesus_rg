@@ -13,7 +13,7 @@ export default function PoliticaDePrivacidadePage() {
     <div>
       <MigalhaDePao items={[{ label: 'Política de Privacidade' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Transparência & LGPD</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Política de Privacidade & Proteção de Dados</h1>
@@ -31,7 +31,7 @@ export default function PoliticaDePrivacidadePage() {
 
         <section className="space-y-3">
           <h2 className="font-display font-bold text-xl text-slate-900 flex items-center gap-2">
-            <Lock className="w-5 h-5 text-[#1E3A5F]" />
+            <Lock className="w-5 h-5 text-brand" />
             <span>1. Informações Coletadas nos Formulários</span>
           </h2>
           <p>
@@ -44,7 +44,7 @@ export default function PoliticaDePrivacidadePage() {
 
         <section className="space-y-3">
           <h2 className="font-display font-bold text-xl text-slate-900 flex items-center gap-2">
-            <Eye className="w-5 h-5 text-[#1E3A5F]" />
+            <Eye className="w-5 h-5 text-brand" />
             <span>2. Uso de Cookies e Google Analytics 4</span>
           </h2>
           <p>
@@ -57,20 +57,20 @@ export default function PoliticaDePrivacidadePage() {
 
         <section className="space-y-3">
           <h2 className="font-display font-bold text-xl text-slate-900 flex items-center gap-2">
-            <ShieldCheck className="w-[#1E3A5F]" />
+            <ShieldCheck className="w-5 h-5 text-brand" />
             <span>3. Proteção e Direitos do Titular de Dados</span>
           </h2>
           <p>
             Em conformidade com a LGPD, o titular dos dados possui o direito de solicitar a confirmação, o acesso, a correção ou a exclusão definitiva dos seus dados pessoais fornecidos ao Colégio.
           </p>
           <p>
-            Para exercer seus direitos como titular de dados, entre em contato direto com nosso Encarregado de Proteção de Dados (DPO) através do e-mail oficial: <a href="mailto:secretariacolegiosagrado@gmail.com" className="text-[#1E3A5F] font-bold underline">secretariacolegiosagrado@gmail.com</a>.
+            Para exercer seus direitos como titular de dados, entre em contato direto com nosso Encarregado de Proteção de Dados (DPO) através do e-mail oficial: <a href="mailto:secretariacolegiosagrado@gmail.com" className="text-brand font-bold underline">secretariacolegiosagrado@gmail.com</a>.
           </p>
         </section>
 
         <section className="space-y-3 border-t pt-6">
           <h2 className="font-display font-bold text-xl text-slate-900 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-[#1E3A5F]" />
+            <FileText className="w-5 h-5 text-brand" />
             <span>4. Imagem de Alunos e Menores de Idade (RN01)</span>
           </h2>
           <p>

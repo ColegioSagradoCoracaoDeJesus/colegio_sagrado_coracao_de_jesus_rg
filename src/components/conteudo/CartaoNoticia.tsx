@@ -30,7 +30,7 @@ export const CartaoNoticia: React.FC<CartaoNoticiaProps> = ({ noticia, featured 
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#1E3A5F] text-white font-display text-lg font-bold">
+          <div className="w-full h-full flex items-center justify-center bg-brand text-white font-display text-lg font-bold">
             Sagrado Coração
           </div>
         )}
@@ -44,11 +44,11 @@ export const CartaoNoticia: React.FC<CartaoNoticiaProps> = ({ noticia, featured 
       <div className="p-6 flex flex-col justify-between flex-1">
         <div>
           <div className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-2">
-            <Calendar className="w-3.5 h-3.5 text-[#5C7A99]" />
+            <Calendar className="w-3.5 h-3.5 text-brand-dark" />
             <time dateTime={noticia.data}>{formattedDate}</time>
           </div>
 
-          <h3 className={`font-display font-bold text-slate-900 leading-snug mb-3 hover:text-[#1E3A5F] transition-colors ${featured ? 'text-xl sm:text-2xl' : 'text-lg'}`}>
+          <h3 className={`font-display font-bold text-slate-900 leading-snug mb-3 hover:text-brand transition-colors ${featured ? 'text-xl sm:text-2xl' : 'text-lg'}`}>
             <Link href={`/noticias/${noticia.slug.current}`}>
               {noticia.titulo}
             </Link>
@@ -61,7 +61,7 @@ export const CartaoNoticia: React.FC<CartaoNoticiaProps> = ({ noticia, featured 
 
         <Link
           href={`/noticias/${noticia.slug.current}`}
-          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1E3A5F] hover:text-[#D97706] transition-colors mt-2"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand hover:text-[#D97706] transition-colors mt-2"
         >
           <span>Ler matéria completa</span>
           <ArrowRight className="w-4 h-4" />

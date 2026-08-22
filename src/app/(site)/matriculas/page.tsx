@@ -5,13 +5,15 @@ import { Etiqueta } from '@/components/ui/Etiqueta'
 import { Botao } from '@/components/ui/Botao'
 import { FormVisitaModal } from '@/components/conteudo/FormVisitaModal'
 import { BlocoCTA } from '@/components/conteudo/BlocoCTA'
+import { getSiteSettings } from '@/lib/sanity/queries'
 
 export const metadata = {
   title: 'Matrículas e Rematrículas 2027 | Vagas Abertas',
   description: 'Garanta a vaga do seu filho no Colégio Sagrado Coração de Jesus para o Ano Letivo 2027 em Rio Grande - RS. Documentação necessária, passo a passo e agendamento de visita.',
 }
 
-export default function MatriculasPage() {
+export default async function MatriculasPage() {
+  const settings = await getSiteSettings()
   const passosMatricula = [
     { passo: '01', titulo: 'Agende uma Visita Guiada', descricao: 'Conheça nossa estrutura física, proposta pedagógica e tire dúvidas com a equipe de coordenação.' },
     { passo: '02', titulo: 'Entrevista Pedagógica & Apresentação', descricao: 'Conversa acolhedora com os pais e apresentação das diretrizes de convivência do Sagrado.' },
@@ -38,7 +40,7 @@ export default function MatriculasPage() {
     <div>
       <MigalhaDePao items={[{ label: 'Matrículas & Rematrículas 2027' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Ano Letivo 2027 — Vagas Abertas</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Matrículas & Rematrículas 2027</h1>
@@ -73,7 +75,7 @@ export default function MatriculasPage() {
             <div className="space-y-2">
               <Etiqueta variant="brand">Documentação Exigida</Etiqueta>
               <h3 className="font-display font-bold text-xl text-slate-900 flex items-center gap-2">
-                <FileCheck className="w-5 h-5 text-[#1E3A5F]" />
+                <FileCheck className="w-5 h-5 text-brand" />
                 <span>Documentos para Matrícula</span>
               </h3>
             </div>
@@ -88,7 +90,7 @@ export default function MatriculasPage() {
             </ul>
 
             <div className="pt-2">
-              <Botao href="https://wa.me/555332325531" external variant="outline" fullWidth size="md">
+              <Botao href={`https://wa.me/${settings.whatsapp}`} external variant="outline" fullWidth size="md">
                 <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>Tirar dúvidas sobre documentos</span>
               </Botao>

@@ -2,45 +2,18 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { validateAgendarVisita } from '@/lib/validation'
 import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
+import { sanitizeHTML } from '@/lib/email/sanitize'
+import { checkRateLimit, getClientIp } from '@/lib/email/rateLimit'
 
-// Rate limiting in-memory store (simple implementation)
-const rateLimitStore = new Map<string, { count: number; resetTime: number }>()
-
-function sanitizeHTML(text: string): string {
-  if (!text) return ''
-  return text
-    .replace(/[<>\"']/g, (match) => {
-      const htmlEscapeMap: Record<string, string> = {
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
-      }
-      return htmlEscapeMap[match]
-    })
-    .substring(0, 500)
-}
-
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now()
-  const limit = rateLimitStore.get(ip)
-
-  if (!limit || now > limit.resetTime) {
-    rateLimitStore.set(ip, { count: 1, resetTime: now + 60000 }) // 1 minute window
-    return true
-  }
-
-  if (limit.count >= 5) {
-    return false // Max 5 requests per minute
-  }
-
-  limit.count++
-  return true
-}
+// Remetente do e-mail de notificação. Em produção, defina RESEND_FROM_EMAIL
+// com um endereço do domínio verificado no Resend (ex.: "Colégio Sagrado
+// Coração <secretaria@colegiosagradocoracao.com.br>") — o domínio de teste
+// onboarding@resend.dev só entrega para o e-mail do dono da conta Resend.
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Colégio Sagrado Coração <onboarding@resend.dev>'
 
 export async function POST(request: Request) {
   try {
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+    const ip = getClientIp(request)
 
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -59,32 +32,45 @@ export async function POST(request: Request) {
     const resendApiKey = process.env.RESEND_API_KEY
     const targetEmail = process.env.EMAIL_DESTINO_VISITAS || DEFAULT_SITE_SETTINGS.emailVisita
 
-    if (resendApiKey) {
-      const resend = new Resend(resendApiKey)
-      await resend.emails.send({
-        from: 'Colégio Sagrado Coração <onboarding@resend.dev>',
-        to: [targetEmail],
-        subject: `[Agende uma Visita] Novo pedido de ${sanitizeHTML(body.nome)}`,
-        html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-            <div style="background-color: #1E3A5F; color: white; padding: 20px; text-align: center;">
-              <h2 style="margin: 0;">Novo Agendamento de Visita - Colégio Sagrado Coração</h2>
-            </div>
-            <div style="padding: 24px; color: #374151;">
-              <p><strong>Nome:</strong> ${sanitizeHTML(body.nome)}</p>
-              <p><strong>E-mail:</strong> ${sanitizeHTML(body.email)}</p>
-              <p><strong>Telefone/WhatsApp:</strong> ${sanitizeHTML(body.telefone)}</p>
-              <p><strong>Série / Modalidade de Interesse:</strong> ${sanitizeHTML(body.serieModalidade)}</p>
-              <p><strong>Período Preferido:</strong> ${sanitizeHTML(body.periodoPreferido)}</p>
-              ${body.mensagem ? `<p><strong>Mensagem Adicional:</strong> ${sanitizeHTML(body.mensagem)}</p>` : ''}
-              <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0;" />
-              <p style="font-size: 12px; color: #6b7280;">Este e-mail foi enviado através do formulário de agendamento de visita no site oficial do Colégio Sagrado Coração de Jesus.</p>
-            </div>
+    if (!resendApiKey) {
+      console.error('[agendar-visita] RESEND_API_KEY não configurada — e-mail NÃO foi enviado. Configure a variável de ambiente na hospedagem (Vercel).', { destinatarioEsperado: targetEmail, body })
+      return NextResponse.json(
+        { success: false, message: 'Não foi possível enviar sua solicitação no momento. Por favor, entre em contato pelo WhatsApp ou telefone da secretaria.' },
+        { status: 502 }
+      )
+    }
+
+    const resend = new Resend(resendApiKey)
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [targetEmail],
+      replyTo: body.email,
+      subject: `[Agende uma Visita] Novo pedido de ${sanitizeHTML(body.nome)}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+          <div style="background-color: #1E3A5F; color: white; padding: 20px; text-align: center;">
+            <h2 style="margin: 0;">Novo Agendamento de Visita - Colégio Sagrado Coração</h2>
           </div>
-        `,
-      })
-    } else {
-      console.log('[MOCK RESEND EMAIL - VISITA]', { to: targetEmail, body })
+          <div style="padding: 24px; color: #374151;">
+            <p><strong>Nome:</strong> ${sanitizeHTML(body.nome)}</p>
+            <p><strong>E-mail:</strong> ${sanitizeHTML(body.email)}</p>
+            <p><strong>Telefone/WhatsApp:</strong> ${sanitizeHTML(body.telefone)}</p>
+            <p><strong>Série / Modalidade de Interesse:</strong> ${sanitizeHTML(body.serieModalidade)}</p>
+            <p><strong>Período Preferido:</strong> ${sanitizeHTML(body.periodoPreferido)}</p>
+            ${body.mensagem ? `<p><strong>Mensagem Adicional:</strong> ${sanitizeHTML(body.mensagem)}</p>` : ''}
+            <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0;" />
+            <p style="font-size: 12px; color: #6b7280;">Este e-mail foi enviado através do formulário de agendamento de visita no site oficial do Colégio Sagrado Coração de Jesus.</p>
+          </div>
+        </div>
+      `,
+    })
+
+    if (error) {
+      console.error('[agendar-visita] Resend recusou o envio — e-mail NÃO chegou ao destinatário.', { error, destinatarioEsperado: targetEmail })
+      return NextResponse.json(
+        { success: false, message: 'Não foi possível enviar sua solicitação no momento. Por favor, entre em contato pelo WhatsApp ou telefone da secretaria.' },
+        { status: 502 }
+      )
     }
 
     return NextResponse.json({

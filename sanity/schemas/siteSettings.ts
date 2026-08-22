@@ -104,17 +104,5 @@ export default defineType({
         { name: 'youtube', type: 'url', title: 'YouTube' },
       ],
     }),
-    defineField({
-      name: 'parceiros',
-      title: 'Empresas Parceiras',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'parceiro' }],
-        },
-      ],
-      description: 'Selecione as empresas parceiras para exibir no site. Ordene por importância.',
-    }),
   ],
 })

@@ -7,7 +7,11 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, MessageSquare, Calendar, GraduationCap, ChevronDown, Clock, Sparkles, BookOpen, PhoneCall } from 'lucide-react'
 import { Botao } from '../ui/Botao'
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  whatsappNumber?: string
+}
+
+export const Header: React.FC<HeaderProps> = ({ whatsappNumber = '555332325531' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>('inst')
@@ -58,8 +62,8 @@ export const Header: React.FC = () => {
             <button
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${
                 ['/nossa-historia', '/70-anos', '/diferenciais', '/vivencie-o-sagrado'].includes(pathname)
-                  ? 'text-[#1E3A5F] bg-slate-100'
-                  : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
+                  ? 'text-brand bg-slate-100'
+                  : 'text-slate-700 hover:text-brand hover:bg-slate-100'
               }`}
             >
               <GraduationCap className="w-4 h-4 text-amber-500" />
@@ -70,13 +74,13 @@ export const Header: React.FC = () => {
               <div className="bg-white rounded-lg shadow-xl border border-slate-100 p-1.5 space-y-0.5">
                 <Link
                   href="/nossa-historia"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Nossa História
                 </Link>
                 <Link
                   href="/escola-em-rio-grande-rs"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Escola em Rio Grande - RS
                 </Link>
@@ -89,13 +93,13 @@ export const Header: React.FC = () => {
                 </Link>
                 <Link
                   href="/diferenciais"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Diferenciais Pedagógicos
                 </Link>
                 <Link
                   href="/vivencie-o-sagrado"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Vivencie o Sagrado
                 </Link>
@@ -108,8 +112,8 @@ export const Header: React.FC = () => {
             <button
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${
                 ['/ensino', '/nossa-estrutura', '/locacao-de-espacos'].includes(pathname)
-                  ? 'text-[#1E3A5F] bg-slate-100'
-                  : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
+                  ? 'text-brand bg-slate-100'
+                  : 'text-slate-700 hover:text-brand hover:bg-slate-100'
               }`}
             >
               <BookOpen className="w-4 h-4 text-amber-500" />
@@ -120,19 +124,19 @@ export const Header: React.FC = () => {
               <div className="bg-white rounded-lg shadow-xl border border-slate-100 p-1.5 space-y-0.5">
                 <Link
                   href="/ensino"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Modalidades de Ensino
                 </Link>
                 <Link
                   href="/nossa-estrutura"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Nossa Estrutura & Câmpus
                 </Link>
                 <Link
                   href="/locacao-de-espacos"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Locação de Ginásio & Auditório
                 </Link>
@@ -145,8 +149,8 @@ export const Header: React.FC = () => {
             <button
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${
                 ['/noticias', '/contato'].includes(pathname)
-                  ? 'text-[#1E3A5F] bg-slate-100'
-                  : 'text-slate-700 hover:text-[#1E3A5F] hover:bg-slate-100'
+                  ? 'text-brand bg-slate-100'
+                  : 'text-slate-700 hover:text-brand hover:bg-slate-100'
               }`}
             >
               <PhoneCall className="w-4 h-4 text-amber-500" />
@@ -157,13 +161,13 @@ export const Header: React.FC = () => {
               <div className="bg-white rounded-lg shadow-xl border border-slate-100 p-1.5 space-y-0.5">
                 <Link
                   href="/noticias"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Aconteceu no Sagrado (Notícias)
                 </Link>
                 <Link
                   href="/contato"
-                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-[#1E3A5F] font-medium"
+                  className="block px-3 py-1.5 rounded text-xs text-slate-700 hover:bg-slate-50 hover:text-brand font-medium"
                 >
                   Fale Conosco & Localização
                 </Link>
@@ -174,7 +178,7 @@ export const Header: React.FC = () => {
           {/* Matrículas CTA */}
           <Link
             href="/matriculas"
-            className="px-3 py-1 rounded-lg text-xs font-bold bg-[#1E3A5F] text-white hover:bg-[#152A47] transition-all shadow-sm hover:shadow-md"
+            className="px-3 py-1 rounded-lg text-xs font-bold bg-brand text-white hover:bg-brand-dark transition-all shadow-sm hover:shadow-md"
           >
             Matrículas 2027
           </Link>
@@ -194,7 +198,7 @@ export const Header: React.FC = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
-            className="lg:hidden p-2.5 text-slate-800 hover:text-[#1E3A5F] hover:bg-slate-100 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="lg:hidden p-2.5 text-slate-800 hover:text-brand hover:bg-slate-100 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
             {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
@@ -208,7 +212,7 @@ export const Header: React.FC = () => {
             <div>
               <div className="flex items-center justify-between border-b pb-4 mb-4">
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-[#1E3A5F]" />
+                  <GraduationCap className="w-5 h-5 text-brand" />
                   <span className="font-bold text-slate-900 text-sm">Menu Institucional</span>
                 </div>
                 <span className="text-xs font-bold bg-[#B8860B] text-white px-2 py-0.5 rounded">70 Anos</span>
@@ -281,7 +285,7 @@ export const Header: React.FC = () => {
                 <Link
                   href="/matriculas"
                   onClick={closeMobileMenu}
-                  className="px-4 py-2.5 rounded-md text-sm font-bold bg-[#1E3A5F] text-white text-center shadow"
+                  className="px-4 py-2.5 rounded-md text-sm font-bold bg-brand text-white text-center shadow"
                 >
                   Matrículas 2027
                 </Link>
@@ -293,7 +297,7 @@ export const Header: React.FC = () => {
                 <Calendar className="w-4 h-4" />
                 <span>Agende uma Visita Guiada</span>
               </Botao>
-              <Botao href="https://wa.me/555332325531" external variant="outline" fullWidth size="md">
+              <Botao href={`https://wa.me/${whatsappNumber}`} external variant="outline" fullWidth size="md">
                 <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>Falar com a Secretaria</span>
               </Botao>

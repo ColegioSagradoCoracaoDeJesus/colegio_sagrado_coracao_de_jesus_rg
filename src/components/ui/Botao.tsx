@@ -24,12 +24,12 @@ export const Botao: React.FC<BotaoProps> = ({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
 
   const variants = {
-    primary: 'bg-[#1E3A5F] hover:bg-[#152A47] text-white shadow-sm hover:shadow active:scale-[0.99]',
-    secondary: 'bg-[#5C7A99] hover:bg-[#1E3A5F] text-white shadow-sm',
+    primary: 'bg-brand hover:bg-brand-dark text-white shadow-sm hover:shadow active:scale-[0.99]',
+    secondary: 'bg-brand-dark hover:bg-brand text-white shadow-sm',
     accent: 'bg-[#D97706] hover:bg-[#B45309] text-white shadow-md hover:shadow-lg font-semibold active:scale-[0.99]', // Destaque escasso
     anniversary: 'bg-[#B8860B] hover:bg-[#966d08] text-white shadow-md hover:shadow-lg font-semibold',
-    outline: 'border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white',
-    white: 'bg-white hover:bg-slate-100 text-[#1E3A5F] shadow-sm font-semibold',
+    outline: 'border-2 border-brand text-brand hover:bg-brand hover:text-white',
+    white: 'bg-white hover:bg-slate-100 text-brand shadow-sm font-semibold',
   }
 
   const sizes = {

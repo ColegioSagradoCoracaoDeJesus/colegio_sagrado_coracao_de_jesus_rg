@@ -16,7 +16,7 @@ export default function TecnologiaEducacionalPage() {
     <div>
       <MigalhaDePao items={[{ label: 'Tecnologia Educacional' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Ecossistema Digital</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Recursos e Plataformas Educacionais</h1>
@@ -117,7 +117,7 @@ export default function TecnologiaEducacionalPage() {
         </div>
 
         {/* Infographic Note */}
-        <section className="bg-blue-50 p-8 rounded-lg border-l-4 border-[#1E3A5F]">
+        <section className="bg-blue-50 p-8 rounded-lg border-l-4 border-brand">
           <div className="space-y-3">
             <h3 className="font-display font-bold text-lg text-slate-900">💡 Nota Importante</h3>
             <p className="text-slate-700 text-sm leading-relaxed">

@@ -19,7 +19,7 @@ export default async function EnsinoPage() {
     <div>
       <MigalhaDePao items={[{ label: 'Ensino' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Excelência Pedagógica</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Modalidades de Ensino em Rio Grande - RS</h1>
@@ -30,8 +30,8 @@ export default async function EnsinoPage() {
       </section>
 
       <section className="max-w-[1280px] mx-auto px-4 pt-10">
-        <div className="rounded-2xl border border-[#1E3A5F]/10 bg-[#F5F7FA] p-6 text-center shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Localização</p>
+        <div className="rounded-2xl border border-brand/10 bg-[#F5F7FA] p-6 text-center shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Localização</p>
           <h2 className="mt-2 font-display text-h2 font-bold text-slate-900">Colégio no bairro Cidade Nova, em Rio Grande - RS</h2>
           <p className="mt-3 mx-auto max-w-3xl text-slate-600">
             O Colégio Sagrado Coração de Jesus oferece uma educação de qualidade para famílias da região, combinando tradição, proximidade e um ambiente propício ao aprendizado e ao desenvolvimento integral.
@@ -45,13 +45,13 @@ export default async function EnsinoPage() {
             key={m._id}
             id={m.slug.current}
             className={`p-8 sm:p-10 rounded-lg border border-slate-200 bg-white shadow-sm ${
-              index % 2 === 1 ? 'border-l-4 border-l-[#B8860B]' : 'border-l-4 border-l-[#1E3A5F]'
+              index % 2 === 1 ? 'border-l-4 border-l-[#B8860B]' : 'border-l-4 border-l-brand'
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="bg-[#1E3A5F] text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">
                     {m.faixaEtaria}
                   </span>
                   <Etiqueta variant="brand">{m.nome}</Etiqueta>
@@ -73,7 +73,7 @@ export default async function EnsinoPage() {
                 {/* Objectives */}
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
-                    <Target className="w-4 h-4 text-[#1E3A5F]" />
+                    <Target className="w-4 h-4 text-brand" />
                     <span>Objetivos Pedagógicos</span>
                   </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">

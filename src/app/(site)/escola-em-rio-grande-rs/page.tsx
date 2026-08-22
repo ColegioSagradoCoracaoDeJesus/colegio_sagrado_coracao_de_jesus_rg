@@ -3,21 +3,21 @@ import { MapPin, GraduationCap, School, PhoneCall, CalendarCheck2 } from 'lucide
 import { MigalhaDePao } from '@/components/ui/MigalhaDePao'
 import { Etiqueta } from '@/components/ui/Etiqueta'
 import { Botao } from '@/components/ui/Botao'
-import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
+import { getSiteSettings } from '@/lib/sanity/queries'
 
 export const metadata = {
   title: 'Escola em Rio Grande - RS | Colégio Sagrado Coração de Jesus',
   description: 'Conheça o Colégio Sagrado Coração de Jesus em Rio Grande - RS, no bairro Cidade Nova, oferecendo Educação Infantil, Ensino Fundamental e Ensino Médio com tradição e acolhimento.',
 }
 
-export default function EscolaRioGrandePage() {
-  const settings = DEFAULT_SITE_SETTINGS
+export default async function EscolaRioGrandePage() {
+  const settings = await getSiteSettings()
 
   return (
     <div>
       <MigalhaDePao items={[{ label: 'Escola em Rio Grande - RS' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="mx-auto max-w-[1280px] text-center space-y-4">
           <Etiqueta variant="anniversary">Escola em Rio Grande - RS</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Colégio Sagrado Coração de Jesus</h1>
@@ -40,7 +40,7 @@ export default function EscolaRioGrandePage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#1E3A5F] text-white">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
                   <School className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900">Educação Infantil</h3>
@@ -48,7 +48,7 @@ export default function EscolaRioGrandePage() {
               </div>
 
               <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#1E3A5F] text-white">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
                   <GraduationCap className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900">Ensino Fundamental</h3>
@@ -56,7 +56,7 @@ export default function EscolaRioGrandePage() {
               </div>
 
               <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#1E3A5F] text-white">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
                   <CalendarCheck2 className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900">Ensino Médio</h3>
@@ -64,7 +64,7 @@ export default function EscolaRioGrandePage() {
               </div>
 
               <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#1E3A5F] text-white">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900">Localização</h3>
@@ -78,11 +78,11 @@ export default function EscolaRioGrandePage() {
               <h3 className="font-display text-h3 font-bold text-slate-900">Visite o Colégio</h3>
               <ul className="mt-5 space-y-4 text-sm text-slate-600">
                 <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 text-[#1E3A5F]" />
+                  <MapPin className="mt-0.5 h-5 w-5 text-brand" />
                   <span>{settings.endereco}</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <PhoneCall className="mt-0.5 h-5 w-5 text-[#1E3A5F]" />
+                  <PhoneCall className="mt-0.5 h-5 w-5 text-brand" />
                   <span>{settings.telefones[0]}</span>
                 </li>
               </ul>
@@ -91,7 +91,7 @@ export default function EscolaRioGrandePage() {
                 <Botao href="/contato#agendar-visita" variant="accent" size="md" fullWidth>
                   Agendar visita
                 </Botao>
-                <Botao href="https://wa.me/555332325531" external variant="white" size="md" fullWidth>
+                <Botao href={`https://wa.me/${settings.whatsapp}`} external variant="white" size="md" fullWidth>
                   Falar no WhatsApp
                 </Botao>
               </div>
@@ -99,8 +99,8 @@ export default function EscolaRioGrandePage() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-[#1E3A5F]/10 bg-[#F8FAFC] p-6 sm:p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1E3A5F]">Por que escolher o Sagrado?</p>
+        <section className="rounded-2xl border border-brand/10 bg-[#F8FAFC] p-6 sm:p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Por que escolher o Sagrado?</p>
           <h2 className="mt-3 font-display text-h2 font-bold text-slate-900">Uma educação que une tradição, acolhimento e inovação</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">

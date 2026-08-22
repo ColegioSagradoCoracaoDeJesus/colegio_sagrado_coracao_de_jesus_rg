@@ -37,7 +37,7 @@ export const AvisoCookies: React.FC = () => {
     <div
       role="region"
       aria-label="Aviso de Privacidade e Cookies (LGPD)"
-      className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-[#152A47]/95 backdrop-blur-md text-white border-t-2 border-[#D97706] shadow-2xl animate-slideUp"
+      className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-brand-dark/95 backdrop-blur-md text-white border-t-2 border-[#D97706] shadow-2xl animate-slideUp"
     >
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-start gap-3.5 max-w-3xl">

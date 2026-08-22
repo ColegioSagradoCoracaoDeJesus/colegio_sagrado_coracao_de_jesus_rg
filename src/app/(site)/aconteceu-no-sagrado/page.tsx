@@ -21,7 +21,7 @@ export default async function AconteceuNoSagradoPage() {
     <div>
       <MigalhaDePao items={[{ label: 'Aconteceu no Sagrado' }]} />
 
-      <section className="bg-[#1E3A5F] text-white py-16 px-4">
+      <section className="bg-brand text-white py-16 px-4">
         <div className="max-w-[1280px] mx-auto text-center space-y-4">
           <Etiqueta variant="anniversary">Vida Escolar em Imagens e Palavras</Etiqueta>
           <h1 className="font-display text-h1 font-bold text-white">Aconteceu no Sagrado</h1>
@@ -38,11 +38,11 @@ export default async function AconteceuNoSagradoPage() {
             <div>
               <Etiqueta variant="brand" className="mb-2">Jornalismo Escolar</Etiqueta>
               <h2 className="font-display text-h2 font-bold text-slate-900 flex items-center gap-2">
-                <Newspaper className="w-6 h-6 text-[#1E3A5F]" />
+                <Newspaper className="w-6 h-6 text-brand" />
                 <span>Últimas Notícias</span>
               </h2>
             </div>
-            <Link href="/noticias" className="text-sm font-bold text-[#1E3A5F] hover:underline flex items-center gap-1">
+            <Link href="/noticias" className="text-sm font-bold text-brand hover:underline flex items-center gap-1">
               Ver arquivo completo
               <ArrowRight className="w-4 h-4" />
             </Link>
