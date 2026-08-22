@@ -44,7 +44,7 @@
 Este manual foi elaborado para que qualquer membro da secretaria ou comunicação do Colégio publique conteúdos no site de forma simples e autônoma, sem depender de suporte técnico.
 
 ### 1. Acessando o Painel de Conteúdo
-1. Abra o navegador e acesse o endereço `/studio` no domínio do site (ex: `https://sagradocoracao.g12.br/studio`).
+1. Abra o navegador e acesse o endereço `/studio` no domínio do site (ex: `https://colegiosagradocoracaodejesusrg.vercel.app/studio`).
 2. Faça login com seu e-mail e senha cadastrados no Sanity.
 
 ### 2. Publicando uma Nova Notícia (Passo a Passo)
@@ -92,7 +92,7 @@ Para garantir que o site permaneça online 24/7 sem custos:
 1. Crie uma conta gratuita no [UptimeRobot](https://uptimerobot.com).
 2. Clique em **"Add New Monitor"**.
 3. Selecione o tipo **HTTP(s)**.
-4. Insira o nome *Colégio Sagrado Coração* e a URL `https://sagradocoracao.g12.br`.
+4. Insira o nome *Colégio Sagrado Coração* e a URL `https://colegiosagradocoracaodejesusrg.vercel.app`.
 5. Configure o intervalo de checagem para **5 minutos**.
 6. Insira o e-mail da secretaria para receber alertas automáticos em caso de indisponibilidade.
 
@@ -120,8 +120,8 @@ Estes itens já possuem estrutura funcionando no site com dados de exemplo, mas 
 1. Logotipo institucional em vetor (.ai / .svg)
 2. Cores HEX finais (caso o Colégio adote novos tons institucionais nos materiais impressos)
 3. Fotografia em alta resolução da fachada e ambientes reais
-4. Confirmação do e-mail de destino de cada formulário (`secretaria@sagradocoracao.g12.br` e `eventos@sagradocoracao.g12.br`)
-5. Domínio definitivo (ex: `sagradocoracao.g12.br`) conectado no painel da Vercel (Settings → Domains).
+4. E-mail de destino de cada formulário: já configurado como `secretariacolegiosagrado@gmail.com` (`EMAIL_DESTINO_VISITAS` / `EMAIL_DESTINO_LOCACAO`, editável no Sanity). **Importante:** a conta do Resend precisa ser criada usando esse mesmo Gmail — veja o item 1.1 do `docs/07_Proximos_Passos_Deploy_Francine.md`.
+5. **Domínio:** decisão da Direção foi não registrar domínio próprio para não ter custo — o site fica permanentemente em `https://colegiosagradocoracaodejesusrg.vercel.app` (grátis, gerado pela própria Vercel).
 
 ---
 

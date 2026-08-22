@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getNoticias } from '@/lib/sanity/queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://sagradocoracao.g12.br'
+  const baseUrl = 'https://colegiosagradocoracaodejesusrg.vercel.app'
   const noticias = await getNoticias()
 
   const staticRoutes: MetadataRoute.Sitemap = [

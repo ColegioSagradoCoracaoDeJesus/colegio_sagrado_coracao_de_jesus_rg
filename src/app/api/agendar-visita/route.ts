@@ -5,10 +5,13 @@ import { DEFAULT_SITE_SETTINGS } from '@/lib/sanity/queries'
 import { sanitizeHTML } from '@/lib/email/sanitize'
 import { checkRateLimit, getClientIp } from '@/lib/email/rateLimit'
 
-// Remetente do e-mail de notificação. Em produção, defina RESEND_FROM_EMAIL
-// com um endereço do domínio verificado no Resend (ex.: "Colégio Sagrado
-// Coração <secretaria@colegiosagradocoracao.com.br>") — o domínio de teste
-// onboarding@resend.dev só entrega para o e-mail do dono da conta Resend.
+// Remetente do e-mail de notificação. Decisão do projeto (ver
+// docs/07_Proximos_Passos_Deploy_Francine.md, item 1.1): sem domínio próprio,
+// então NÃO configure RESEND_FROM_EMAIL na Vercel — mantenha o fallback
+// onboarding@resend.dev, que só entrega para o e-mail do DONO da conta
+// Resend. Por isso a conta Resend precisa ser criada com o mesmo e-mail que
+// está em EMAIL_DESTINO_VISITAS/EMAIL_DESTINO_LOCACAO (hoje,
+// secretariacolegiosagrado@gmail.com em DEFAULT_SITE_SETTINGS).
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Colégio Sagrado Coração <onboarding@resend.dev>'
 
 export async function POST(request: Request) {

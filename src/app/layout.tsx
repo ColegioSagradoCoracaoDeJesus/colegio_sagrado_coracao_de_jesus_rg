@@ -22,9 +22,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sagradocoracao.g12.br'),
+  metadataBase: new URL('https://colegiosagradocoracaodejesusrg.vercel.app'),
   alternates: {
-    canonical: 'https://sagradocoracao.g12.br',
+    canonical: 'https://colegiosagradocoracaodejesusrg.vercel.app',
   },
   applicationName: 'Colégio Sagrado Coração de Jesus',
   category: 'education',
@@ -47,12 +47,15 @@ export const metadata: Metadata = {
     'Melhor colégio Rio Grande',
   ],
   authors: [{ name: 'Colégio Sagrado Coração de Jesus' }],
+  // BLOQUEIO TEMPORÁRIO DE INDEXAÇÃO: site ainda em fase de testes/produção.
+  // Quando estiver pronto para aparecer no Google, trocar os `false` abaixo
+  // para `true` (e reverter também src/app/robots.ts).
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://sagradocoracao.g12.br',
+    url: 'https://colegiosagradocoracaodejesusrg.vercel.app',
     siteName: 'Colégio Sagrado Coração de Jesus',
     title: 'Colégio Sagrado Coração de Jesus em Rio Grande - RS | Educação Infantil, Fundamental e Médio',
     description: 'Educação de qualidade, tradição, acolhimento e formação integral para crianças, jovens e famílias de Rio Grande - RS.',
@@ -87,8 +90,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': ['School', 'EducationalOrganization'],
     name: 'Colégio Sagrado Coração de Jesus',
     alternateName: 'Colégio Sagrado Coração',
-    url: 'https://sagradocoracao.g12.br',
-    logo: 'https://sagradocoracao.g12.br/logotipo.png',
+    url: 'https://colegiosagradocoracaodejesusrg.vercel.app',
+    logo: 'https://colegiosagradocoracaodejesusrg.vercel.app/logotipo.png',
     foundingDate: '1956',
     description: 'Colégio em Rio Grande - RS com Educação Infantil, Ensino Fundamental, Ensino Médio e forte tradição de educação integral.',
     address: {
