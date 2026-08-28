@@ -500,13 +500,31 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 
 export async function getNoticias(): Promise<Noticia[]> {
   if (!isSanityConfigured) return DEFAULT_NOTICIAS
+
   try {
-    const res = await client.fetch(`*[_type == "noticia"] | order(data desc) {
-      _id, titulo, slug, data, categoria, resumo, imagemCapa, destaque,
-      "imageUrl": imagemCapa.asset->url
-    }`)
+    const res = await client.fetch(
+      `*[_type == "noticia"] | order(data desc) {
+        _id,
+        titulo,
+        slug,
+        data,
+        categoria,
+        resumo,
+        imagemCapa,
+        destaque,
+        "imageUrl": imagemCapa.asset->url
+      }`,
+      {},
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    )
+
     return res && res.length > 0 ? res : DEFAULT_NOTICIAS
   } catch (err) {
+    console.error('Erro ao buscar notícias no Sanity:', err)
     return DEFAULT_NOTICIAS
   }
 }
