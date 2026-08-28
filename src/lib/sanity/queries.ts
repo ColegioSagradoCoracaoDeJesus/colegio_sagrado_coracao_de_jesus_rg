@@ -329,18 +329,29 @@ export const DEFAULT_LINHA_TEMPO: LinhaDoTempoItem[] = [
 // Depoimentos ilustrativos — nenhum depoimento real foi fornecido ainda, então
 // ficam claramente marcados como [EXEMPLO] (nunca com nome, profissão ou turma
 // inventados) até serem substituídos por relatos reais cadastrados no Sanity.
-export const DEFAULT_DEPOIMENTOS: Depoimento70Anos[] = [
-  // Depoimento real: quadro oficial "Depoimento de Ex-aluno" publicado pelo
-  // colégio (@colegiosagradorg), assinado com nome completo e @ pelo próprio
-  // depoente. Texto e dados (idade, formação, empresa) são citação direta —
-  // nada além do que está escrito no post foi adicionado.
-  { _id: 'dep1', nome: 'Pietro Piva Vieira', relacao: 'Ex-aluno (do Jardim B à conclusão do Ensino Médio), Engenheiro de Software', texto: 'Estudei no Sagrado desde o Jardim B até a conclusão do Ensino Médio, e posso dizer com orgulho que ela foi fundamental na formação de quem sou hoje, tanto pessoal quanto profissionalmente. Foi aqui que aprendi valores que levo para a vida: a dedicação, a humildade, a curiosidade e o gosto pelo conhecimento. Graças à base sólida que recebi, pude seguir meus sonhos e trilhar uma carreira na área de tecnologia. Hoje, aos 24 anos, sou formado em Sistemas de Informação pela FURG, mestrando em Engenharia de Software na UNIPAMPA e atuo como Engenheiro de Software na Convenia.' },
-  // Depoimento real: comentário público de @_lisi_oliveira_ em post do colégio,
-  // de mãe de aluno que encerrou o ciclo na escola. Trecho resumido do
-  // comentário original (que é bem mais longo).
-  { _id: 'dep2', nome: 'Lisi Oliveira', relacao: 'Mãe de aluno', texto: 'A forma como meu filho sempre foi tratado por TODOS dessa escola foi demais. Era notório a evolução, o crescimento e a independência dele com o passar dos anos. Ele sempre se sentiu em casa no Sagrado, e isso enchia nossos corações de alegria e tranquilidade.', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop' },
-  { _id: 'dep3', nome: '[EXEMPLO] Nome do Depoente 3', relacao: '[EXEMPLO] Vínculo com o Colégio (ex-aluno, pai/mãe, professor...)', texto: '[EXEMPLO] Texto do depoimento a preencher no Sanity com um relato real.', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop' },
-]
+export async function getDepoimentos(): Promise<Depoimento70Anos[]> {
+  if (!isSanityConfigured) return DEFAULT_DEPOIMENTOS
+
+  try {
+    const res = await client.fetch(
+      `*[_type == "depoimento70anos"] {
+        ...,
+        "imageUrl": foto.asset->url
+      }`,
+      {},
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    )
+
+    return res && res.length > 0 ? res : DEFAULT_DEPOIMENTOS
+  } catch (err) {
+    console.error('Erro ao buscar depoimentos no Sanity:', err)
+    return DEFAULT_DEPOIMENTOS
+  }
+}
 
 // Capacidades, itens e nomes específicos (ex.: contagem exata de lugares,
 // especificações técnicas) ainda não foram confirmados pelo Colégio — os campos
