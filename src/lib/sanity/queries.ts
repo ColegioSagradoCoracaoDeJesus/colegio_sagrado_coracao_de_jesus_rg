@@ -565,13 +565,24 @@ export async function getEspacosLocacao(): Promise<EspacoLocacao[]> {
 
 export async function getLinhaDoTempo(): Promise<LinhaDoTempoItem[]> {
   if (!isSanityConfigured) return DEFAULT_LINHA_TEMPO
+
   try {
-    const res = await client.fetch(`*[_type == "linhaDoTempoItem"] | order(ordem asc) {
-      ...,
-      "imageUrl": imagem.asset->url
-    }`)
+    const res = await client.fetch(
+      `*[_type == "linhaDoTempoItem"] | order(ordem asc) {
+        ...,
+        "imageUrl": imagem.asset->url
+      }`,
+      {},
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    )
+
     return res && res.length > 0 ? res : DEFAULT_LINHA_TEMPO
   } catch (err) {
+    console.error('Erro ao buscar linha do tempo no Sanity:', err)
     return DEFAULT_LINHA_TEMPO
   }
 }
