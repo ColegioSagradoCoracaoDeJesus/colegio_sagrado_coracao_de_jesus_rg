@@ -326,38 +326,6 @@ export const DEFAULT_LINHA_TEMPO: LinhaDoTempoItem[] = [
   { _id: 'lt5', ano: '2026', titulo: 'Celebração dos 70 Anos', descricao: 'Sete décadas de história, consolidando tradição pedagógica, tecnologia educacional de ponta e comunidade participativa.', imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop', ordem: 5 },
 ]
 
-// Depoimentos ilustrativos — nenhum depoimento real foi fornecido ainda, então
-// ficam claramente marcados como [EXEMPLO] (nunca com nome, profissão ou turma
-// inventados) até serem substituídos por relatos reais cadastrados no Sanity.
-export async function getDepoimentos(): Promise<Depoimento70Anos[]> {
-  if (!isSanityConfigured) return DEFAULT_DEPOIMENTOS
-
-  try {
-    const res = await client.fetch(
-      `*[_type == "depoimento70anos"] {
-        ...,
-        "imageUrl": foto.asset->url
-      }`,
-      {},
-      {
-        next: {
-          revalidate: 60,
-        },
-      }
-    )
-
-    return res && res.length > 0 ? res : DEFAULT_DEPOIMENTOS
-  } catch (err) {
-    console.error('Erro ao buscar depoimentos no Sanity:', err)
-    return DEFAULT_DEPOIMENTOS
-  }
-}
-
-// Capacidades, itens e nomes específicos (ex.: contagem exata de lugares,
-// especificações técnicas) ainda não foram confirmados pelo Colégio — os campos
-// abaixo descrevem apenas o que consta no histórico oficial (ginásio poliesportivo
-// e auditório existem), sem números ou nomes inventados. Ajuste no Sanity com os
-// dados reais de cada espaço.
 export const DEFAULT_ESPACOS: EspacoLocacao[] = [
   {
     _id: 'e1',
@@ -607,13 +575,27 @@ export async function getLinhaDoTempo(): Promise<LinhaDoTempoItem[]> {
 
 export async function getDepoimentos(): Promise<Depoimento70Anos[]> {
   if (!isSanityConfigured) return DEFAULT_DEPOIMENTOS
+
   try {
-    const res = await client.fetch(`*[_type == "depoimento70anos"] {
-      ...,
-      "imageUrl": foto.asset->url
-    }`)
+    const res = await client.fetch(
+      `*[_type == "depoimento70anos"] | order(_createdAt asc) {
+        _id,
+        nome,
+        relacao,
+        texto,
+        "imageUrl": foto.asset->url
+      }`,
+      {},
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    )
+
     return res && res.length > 0 ? res : DEFAULT_DEPOIMENTOS
   } catch (err) {
+    console.error('Erro ao buscar depoimentos no Sanity:', err)
     return DEFAULT_DEPOIMENTOS
   }
 }
